@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NovaSpot — Formulaire de création de site | Ostéopathie Animale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root{
+  --navy:#0f2044;--orange:#e8700a;--orange2:#f08020;
+  --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
+  --green:#22c55e;--white:#fff;
+  --t:.25s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--light);color:var(--text);padding:0 0 4rem}
+
+/* HEADER */
+header{background:var(--navy);padding:3rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,112,10,.15) 0%,transparent 65%)}
+.h-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,112,10,.12);border:1px solid rgba(232,112,10,.3);padding:.3rem .9rem;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange2);margin-bottom:1.25rem;position:relative;z-index:1}
+.h-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:.75rem;position:relative;z-index:1}
+.h-title span{color:var(--orange)}
+.h-sub{font-size:.88rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+
+/* CONTAINER */
+.container{max-width:720px;margin:-2rem auto 0;padding:0 1.5rem;position:relative;z-index:2}
+
+/* PROGRESS */
+.progress-wrap{background:#fff;border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(15,32,68,.06)}
+.progress-bar{height:6px;background:var(--light);border-radius:3px;overflow:hidden;margin-bottom:.6rem}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--orange2));border-radius:3px;width:0%;transition:width .4s ease}
+.progress-text{font-size:.72rem;color:var(--text2);text-align:center}
+
+/* CARD (section) */
+.card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;margin-bottom:1.25rem;box-shadow:0 2px 16px rgba(15,32,68,.04)}
+.card-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.card-num{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.card-title{font-size:1.05rem;font-weight:700;color:var(--navy)}
+.card-sub{font-size:.75rem;color:var(--text3);margin-top:.15rem}
+
+/* FORM ELEMENTS */
+.fg{margin-bottom:1.25rem}
+.fg:last-child{margin-bottom:0}
+.fl{display:block;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.5rem}
+.fl .req{color:var(--orange);margin-left:.2rem}
+.fl .opt{color:var(--text3);font-weight:400;font-size:.7rem;margin-left:.4rem}
+.fi,.ft,.fs{width:100%;background:var(--light);border:1.5px solid var(--border);color:var(--text);padding:.75rem 1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color var(--t),background var(--t);border-radius:5px}
+.fi:focus,.ft:focus,.fs:focus{border-color:var(--orange);background:#fff}
+.ft{resize:vertical;min-height:80px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hint{font-size:.72rem;color:var(--text3);margin-top:.4rem;line-height:1.5}
+
+/* UPLOAD ZONES */
+.upload-zone{border:2px dashed var(--border);border-radius:6px;padding:1.5rem;cursor:pointer;transition:all var(--t);background:var(--light)}
+.upload-zone:hover{border-color:var(--orange);background:rgba(232,112,10,.03)}
+.upload-zone.dragover{border-color:var(--orange);background:rgba(232,112,10,.06)}
+.upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;pointer-events:none}
+.upload-icon{font-size:1.8rem}
+.upload-text{font-size:.78rem;color:var(--text2);font-weight:500}
+.upload-preview-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.75rem}
+.upload-preview-list:empty{margin-top:0}
+.upload-item{position:relative;width:70px;height:70px;border-radius:6px;overflow:hidden;border:1.5px solid var(--border);background:#fff}
+.upload-item img{width:100%;height:100%;object-fit:cover;display:block}
+.upload-item.uploading img{opacity:.4}
+.upload-spinner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--orange);background:rgba(255,255,255,.7)}
+.upload-remove{position:absolute;top:2px;right:2px;width:18px;height:18px;background:rgba(0,0,0,.6);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;cursor:pointer;border:none}
+.upload-remove:hover{background:#ef4444}
+.upload-error{font-size:.68rem;color:#ef4444;margin-top:.5rem}
+
+/* CHECKBOX GRID */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.check-item{display:flex;align-items:center;gap:.7rem;padding:.75rem .9rem;background:var(--light);border:1.5px solid var(--border);border-radius:5px;cursor:pointer;transition:all var(--t)}
+.check-item:hover{border-color:rgba(232,112,10,.3)}
+.check-item.checked{background:rgba(232,112,10,.06);border-color:var(--orange)}
+.check-item input{display:none}
+.check-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all var(--t);background:#fff}
+.check-item.checked .check-box{background:var(--orange);border-color:var(--orange)}
+.check-box::after{content:'✓';color:#fff;font-size:.7rem;opacity:0;transition:opacity var(--t)}
+.check-item.checked .check-box::after{opacity:1}
+.check-label{font-size:.8rem;color:var(--text);font-weight:500}
+
+/* COLOR PICKER */
+.color-picker-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.color-picker-input{width:56px;height:56px;border-radius:10px;border:2px solid var(--border);cursor:pointer;padding:0;background:none;flex-shrink:0}
+.color-picker-input::-webkit-color-swatch-wrapper{padding:3px}
+.color-picker-input::-webkit-color-swatch{border-radius:7px;border:none}
+.color-picker-info{flex:1}
+.color-picker-label{font-size:.72rem;color:var(--text2);font-weight:600;margin-bottom:.3rem}
+.color-picker-hex{font-family:'SF Mono',Consolas,monospace;font-size:.85rem;font-weight:700;color:var(--navy);background:var(--light);border:1.5px solid var(--border);padding:.4rem .7rem;border-radius:5px;width:110px;text-transform:uppercase}
+.color-presets{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
+.preset-swatch{width:28px;height:28px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:all var(--t)}
+.preset-swatch:hover{transform:scale(1.15);border-color:var(--border)}
+.color-preview-bar{height:8px;border-radius:4px;margin-top:1.25rem;overflow:hidden;display:flex}
+.color-preview-half{flex:1}
+
+/* STYLE CARDS */
+.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.style-card{border:1.5px solid var(--border);border-radius:6px;padding:1rem;cursor:pointer;transition:all var(--t);text-align:center}
+.style-card:hover{border-color:rgba(232,112,10,.3)}
+.style-card.selected{border-color:var(--orange);background:rgba(232,112,10,.05)}
+.style-icon{font-size:1.5rem;margin-bottom:.5rem}
+.style-name{font-size:.8rem;font-weight:700;color:var(--navy)}
+.style-desc{font-size:.68rem;color:var(--text2);margin-top:.2rem}
+
+/* HORAIRES */
+.horaire-row{display:grid;grid-template-columns:100px 1fr;gap:.75rem;align-items:center;margin-bottom:.6rem}
+.horaire-day{font-size:.78rem;font-weight:600;color:var(--text2)}
+
+/* SUBMIT */
+.submit-card{background:var(--navy);border-radius:8px;padding:2rem;text-align:center;margin-top:1.5rem}
+.submit-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.submit-sub{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem;line-height:1.6}
+.btn-submit{background:var(--orange);color:#fff;border:none;padding:.9rem 2.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all var(--t);border-radius:5px}
+.btn-submit:hover{background:var(--orange2);transform:translateY(-2px)}
+
+/* RESULT MODAL */
+.result-wrap{display:none;background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;margin-top:1.5rem}
+.result-wrap.active{display:block}
+.result-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;color:var(--green);font-weight:700;font-size:1rem}
+.result-box{background:var(--light);border:1px solid var(--border);border-radius:6px;padding:1.25rem;font-family:'SF Mono',Consolas,monospace;font-size:.72rem;line-height:1.8;color:var(--text);white-space:pre-wrap;max-height:400px;overflow-y:auto;margin-bottom:1rem}
+.btn-copy{background:var(--navy);color:#fff;border:none;padding:.75rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;border-radius:5px;transition:all var(--t)}
+.btn-copy:hover{background:#1e3570}
+.btn-copy.copied{background:var(--green)}
+
+@media(max-width:640px){
+  .form-row,.check-grid,.style-grid{grid-template-columns:1fr}
+  header{padding:2.5rem 1.25rem 3.5rem}
+  .card{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-badge">🐾 Secteur Ostéopathie Animale</div>
+  <div class="h-title">Créons ensemble<br/><span>le site de votre entreprise.</span></div>
+  <p class="h-sub">Remplissez ce formulaire (5 minutes), on s'occupe du reste. Votre site sera prêt sous 48h.</p>
+</header>
+
+<div class="container">
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">0% complété</div>
+  </div>
+
+  <!-- 1. IDENTITÉ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div><div class="card-title">Votre entreprise</div><div class="card-sub">Les informations de base</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Nom de l'entreprise<span class="req">*</span></label>
+      <input class="fi" type="text" id="f-nom" placeholder="Ex: Cabinet Léa Martin" oninput="updateProgress()"/>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Forme juridique<span class="opt">(optionnel)</span></label>
+        <select class="fs" id="f-forme">
+          <option value="">Non renseigné</option>
+          <option>Auto-entrepreneur</option>
+          <option>SARL</option>
+          <option>EURL</option>
+          <option>SAS / SASU</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Année de création<span class="opt">(optionnel)</span></label>
+        <input class="fi" type="text" id="f-annee" placeholder="Ex: 2006"/>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Slogan ou phrase d'accroche<span class="opt">(optionnel — on peut vous en proposer un)</span></label>
+      <input class="fi" type="text" id="f-slogan" placeholder="Ex: Le bien-être animal, ma priorité"/>
+    </div>
+    <div class="fg">
+      <label class="fl">Nombre d'employés<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-effectif" placeholder="Ex: 5 à 10 personnes"/>
+    </div>
+    <div class="fg">
+      <label class="fl">Diplôme / Certification<span class="opt">(optionnel — rassure vos clients)</span></label>
+      <input class="fi" type="text" id="f-diplome" placeholder="Ex: Diplômée du CFPAO, formation continue équine"/>
+    </div>
+  </div>
+
+  <!-- 2. COORDONNÉES -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">2</div>
+      <div><div class="card-title">Coordonnées</div><div class="card-sub">Comment vos clients vous contactent</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Adresse complète<span class="req">*</span></label>
+      <input class="fi" type="text" id="f-adresse" placeholder="Ex: 5 rue des Vétérinaires" oninput="updateProgress()"/>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Code postal<span class="req">*</span></label>
+        <input class="fi" type="text" id="f-cp" placeholder="35000" oninput="updateProgress()"/>
+      </div>
+      <div class="fg">
+        <label class="fl">Ville<span class="req">*</span></label>
+        <input class="fi" type="text" id="f-ville" placeholder="Rennes" oninput="updateProgress()"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Téléphone principal<span class="req">*</span></label>
+        <input class="fi" type="tel" id="f-tel" placeholder="02 99 XX XX XX" oninput="updateProgress()"/>
+      </div>
+      <div class="fg">
+        <label class="fl">Téléphone secondaire<span class="opt">(optionnel)</span></label>
+        <input class="fi" type="tel" id="f-tel2" placeholder="06 XX XX XX XX"/>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Email de contact<span class="req">*</span></label>
+      <input class="fi" type="email" id="f-email" placeholder="contact@monentreprise.fr" oninput="updateProgress()"/>
+    </div>
+  </div>
+
+  <!-- 3. HORAIRES -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">3</div>
+      <div><div class="card-title">Horaires d'ouverture</div><div class="card-sub">Vos disponibilités pour vos clients</div></div>
+    </div>
+    <div id="horairesList">
+      <div class="horaire-row"><div class="horaire-day">Lundi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Lundi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Mardi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Mardi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Mercredi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Mercredi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Jeudi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Jeudi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Vendredi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Vendredi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Samedi</div><input class="fi" type="text" placeholder="Fermé ou sur RDV" data-day="Samedi"/></div>
+      <div class="horaire-row"><div class="horaire-day">Dimanche</div><input class="fi" type="text" placeholder="Fermé" data-day="Dimanche"/></div>
+    </div>
+  </div>
+
+  <!-- 4. PRESTATIONS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">4</div>
+      <div><div class="card-title">Vos prestations</div><div class="card-sub">Cochez tout ce que vous proposez</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Animaux suivis</label>
+      <div class="check-grid" id="grid-metiers">
+        <label class="check-item"><input type="checkbox" value="Chiens"/><div class="check-box"></div><span class="check-label">Chiens</span></label>
+        <label class="check-item"><input type="checkbox" value="Chats"/><div class="check-box"></div><span class="check-label">Chats</span></label>
+        <label class="check-item"><input type="checkbox" value="Chevaux / Équidés"/><div class="check-box"></div><span class="check-label">Chevaux / Équidés</span></label>
+        <label class="check-item"><input type="checkbox" value="NAC (Nouveaux Animaux de Compagnie)"/><div class="check-box"></div><span class="check-label">NAC</span></label>
+        <label class="check-item"><input type="checkbox" value="Animaux de rente / élevage"/><div class="check-box"></div><span class="check-label">Animaux de rente</span></label>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Type d'intervention</label>
+      <div class="check-grid" id="grid-types">
+        <label class="check-item"><input type="checkbox" value="Consultation au cabinet"/><div class="check-box"></div><span class="check-label">Consultation au cabinet</span></label>
+        <label class="check-item"><input type="checkbox" value="Déplacement à domicile"/><div class="check-box"></div><span class="check-label">Déplacement à domicile</span></label>
+        <label class="check-item"><input type="checkbox" value="Suivi sportif / performance"/><div class="check-box"></div><span class="check-label">Suivi sportif</span></label>
+        <label class="check-item"><input type="checkbox" value="Bilan post-traumatique"/><div class="check-box"></div><span class="check-label">Bilan post-traumatique</span></label>
+        <label class="check-item"><input type="checkbox" value="Suivi préventif"/><div class="check-box"></div><span class="check-label">Suivi préventif</span></label>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Autre prestation non listée<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-autre-presta" placeholder="Ex: Ostéopathie équine haut niveau, préparation aux concours..."/>
+    </div>
+  </div>
+
+  <!-- 5. CLIENTÈLE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">5</div>
+      <div><div class="card-title">Votre clientèle</div><div class="card-sub">Qui souhaitez-vous toucher ?</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Type de clientèle</label>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" value="Professionnels"/><div class="check-box"></div><span class="check-label">Professionnels</span></label>
+        <label class="check-item"><input type="checkbox" value="Particuliers"/><div class="check-box"></div><span class="check-label">Particuliers</span></label>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Zone d'intervention<span class="req">*</span></label>
+      <input class="fi" type="text" id="f-zone" placeholder="Ex: Rennes et périphérie (35)" oninput="updateProgress()"/>
+    </div>
+    <div class="fg">
+      <label class="fl">Ce qui vous différencie de la concurrence<span class="opt">(optionnel)</span></label>
+      <textarea class="ft" id="f-diff" placeholder="Ex: Diplômée d'un centre agréé, approche douce, suivi personnalisé..."></textarea>
+    </div>
+  </div>
+
+  <!-- 6. STYLE VISUEL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">6</div>
+      <div><div class="card-title">Style du site</div><div class="card-sub">L'ambiance visuelle qui vous ressemble</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Style préféré</label>
+      <div class="style-grid" id="styleGrid">
+        <div class="style-card" data-style="Professionnel & Corporate"><div class="style-icon">💼</div><div class="style-name">Corporate</div><div class="style-desc">Sobre, sérieux, rassurant</div></div>
+        <div class="style-card" data-style="Moderne & Épuré"><div class="style-icon">✨</div><div class="style-name">Moderne</div><div class="style-desc">Épuré, minimaliste</div></div>
+        <div class="style-card" data-style="Chaleureux & Accessible"><div class="style-icon">🤝</div><div class="style-name">Chaleureux</div><div class="style-desc">Convivial, humain</div></div>
+        <div class="style-card" data-style="Dynamique & Coloré"><div class="style-icon">⚡</div><div class="style-name">Dynamique</div><div class="style-desc">Vif, énergique</div></div>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl">Couleur principale</label>
+      <div class="color-picker-row">
+        <input type="color" class="color-picker-input" id="colorPrimaryPicker" value="#0f2044" onchange="syncColorHex('primary')" oninput="syncColorHex('primary')"/>
+        <div class="color-picker-info">
+          <div class="color-picker-label">Choisissez votre couleur avec le curseur</div>
+          <input type="text" class="color-picker-hex" id="colorPrimaryHex" value="#0F2044" oninput="syncColorPicker('primary')" maxlength="7"/>
+        </div>
+      </div>
+      <div class="color-presets" id="presetsPrimary"></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Couleur secondaire <span class="opt">(pour les accents, boutons...)</span></label>
+      <div class="color-picker-row">
+        <input type="color" class="color-picker-input" id="colorSecondaryPicker" value="#e8700a" onchange="syncColorHex('secondary')" oninput="syncColorHex('secondary')"/>
+        <div class="color-picker-info">
+          <div class="color-picker-label">Choisissez votre couleur avec le curseur</div>
+          <input type="text" class="color-picker-hex" id="colorSecondaryHex" value="#E8700A" oninput="syncColorPicker('secondary')" maxlength="7"/>
+        </div>
+      </div>
+      <div class="color-presets" id="presetsSecondary"></div>
+      <div class="color-preview-bar">
+        <div class="color-preview-half" id="previewPrimary" style="background:#0f2044"></div>
+        <div class="color-preview-half" id="previewSecondary" style="background:#e8700a"></div>
+      </div>
+      <div class="hint">Aperçu de votre combinaison de couleurs ci-dessus</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Autres suggestions de style<span class="opt">(optionnel)</span></label>
+      <textarea class="ft" id="f-style-libre" placeholder="Ex: J'aimerais quelque chose de très épuré avec beaucoup de blanc, un style qui rappelle tel site que j'aime, une police manuscrite pour le logo, une ambiance vintage..."></textarea>
+      <div class="hint">Décrivez librement toute idée de style, d'ambiance ou de référence qui n'est pas couverte ci-dessus.</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Votre logo<span class="opt">(optionnel — image PNG/JPG)</span></label>
+      <div class="upload-zone" id="logoZone" onclick="document.getElementById('logoInput').click()">
+        <input type="file" id="logoInput" accept="image/*" style="display:none" onchange="handleUpload(this,'logo')"/>
+        <div class="upload-placeholder" id="logoPlaceholder">
+          <span class="upload-icon">🖼️</span>
+          <span class="upload-text">Cliquez pour déposer votre logo</span>
+        </div>
+        <div class="upload-preview-list" id="logoPreview"></div>
+      </div>
+      <div class="hint" id="logoHint">Pas de logo ? On peut vous en créer un simple à partir du nom de votre entreprise.</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Photos de l'entreprise<span class="opt">(optionnel — équipe, chantiers, réalisations...)</span></label>
+      <div class="upload-zone" id="photosZone" onclick="document.getElementById('photosInput').click()">
+        <input type="file" id="photosInput" accept="image/*" multiple style="display:none" onchange="handleUpload(this,'photos')"/>
+        <div class="upload-placeholder" id="photosPlaceholder">
+          <span class="upload-icon">📷</span>
+          <span class="upload-text">Cliquez pour déposer une ou plusieurs photos</span>
+        </div>
+        <div class="upload-preview-list" id="photosPreview"></div>
+      </div>
+      <div class="hint">Formats acceptés : JPG, PNG. 5 Mo max par image.</div>
+    </div>
+  </div>
+
+  <!-- 7. TECHNIQUE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">7</div>
+      <div><div class="card-title">Informations techniques</div><div class="card-sub">Pour la mise en ligne du site</div></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Nom souhaité pour le sous-domaine<span class="opt">(sans espace, minuscules — ex: monentreprise)</span></label>
+      <input class="fi" type="text" id="f-subdomain" placeholder="monentreprise"/>
+      <div class="hint">Votre site sera accessible sur : monentreprise.novaspot.fr (ou votre propre domaine si plan Pro/Premium)</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Plan souhaité</label>
+      <select class="fs" id="f-plan">
+        <option value="">À définir ensemble</option>
+        <option>Starter — 49€/mois</option>
+        <option>Pro — 79€/mois</option>
+        <option>Premium — 129€/mois</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 8. COMPLÉMENT -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">8</div>
+      <div><div class="card-title">Informations complémentaires</div><div class="card-sub">Tout ce qui peut nous aider</div></div>
+    </div>
+    <div class="fg">
+      <textarea class="ft" id="f-libre" placeholder="Avez-vous des demandes particulières, des choses à éviter, des exemples de sites que vous aimez ?" style="min-height:100px"></textarea>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-card">
+    <div class="submit-title" id="submitTitle">Prêt à envoyer votre demande ?</div>
+    <p class="submit-sub" id="submitSub">Votre demande est envoyée directement à NovaSpot. Votre site sera créé sous 48h.</p>
+    <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Envoyer ma demande →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-wrap" id="resultWrap">
+    <div class="result-header" id="resultHeader">✓ Demande envoyée avec succès</div>
+    <p style="font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem" id="resultMsg">Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 24h pour finaliser votre site.</p>
+    <div class="result-box" id="resultBox"></div>
+    <button class="btn-copy" id="copyBtn" onclick="copyResult()">📋 Copier le résumé (sauvegarde)</button>
+  </div>
+
+</div>
+
+<script>
+// Checkbox toggle
+document.querySelectorAll('.check-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const cb=item.querySelector('input');
+    cb.checked=!cb.checked;
+    item.classList.toggle('checked',cb.checked);
+    updateProgress();
+  });
+});
+
+// Style card selection
+document.querySelectorAll('.style-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    document.querySelectorAll('.style-card').forEach(c=>c.classList.remove('selected'));
+    card.classList.add('selected');
+    updateProgress();
+  });
+});
+
+// ── SÉLECTEUR DE COULEUR (principale + secondaire) ──
+const colorPresets = ['#0f2044','#e8700a','#15803d','#b91c1c','#1e3a8a','#7c2d92','#0891b2','#525252','#f59e0b','#ec4899'];
+
+function buildPresets(type){
+  const container = document.getElementById('presets'+(type==='primary'?'Primary':'Secondary'));
+  colorPresets.forEach(hex=>{
+    const sw = document.createElement('div');
+    sw.className = 'preset-swatch';
+    sw.style.background = hex;
+    sw.title = hex;
+    sw.onclick = () => {
+      document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker').value = hex;
+      document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex').value = hex.toUpperCase();
+      updateColorPreview();
+    };
+    container.appendChild(sw);
+  });
+}
+buildPresets('primary');
+buildPresets('secondary');
+
+function syncColorHex(type){
+  const picker = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker');
+  const hexInput = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex');
+  hexInput.value = picker.value.toUpperCase();
+  updateColorPreview();
+}
+
+function syncColorPicker(type){
+  const hexInput = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex');
+  const picker = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker');
+  let val = hexInput.value.trim();
+  if (!val.startsWith('#')) val = '#'+val;
+  if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+    picker.value = val;
+    updateColorPreview();
+  }
+}
+
+function updateColorPreview(){
+  const p = document.getElementById('colorPrimaryPicker').value;
+  const s = document.getElementById('colorSecondaryPicker').value;
+  document.getElementById('previewPrimary').style.background = p;
+  document.getElementById('previewSecondary').style.background = s;
+}
+
+// Progress bar
+function updateProgress(){
+  const required=['f-nom','f-adresse','f-cp','f-ville','f-tel','f-email','f-zone'];
+  let filled=0;
+  required.forEach(id=>{
+    if(document.getElementById(id).value.trim())filled++;
+  });
+  const pct=Math.round((filled/required.length)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressText').textContent=pct+'% complété';
+}
+
+// ── CONFIGURATION UPLOAD IMAGES (imgbb) ──
+const IMGBB_API_KEY = 'b354862c93c4379e65fe593141464061';
+
+const uploadedImages = { logo: [], photos: [] };
+
+function handleUpload(input, type){
+  const files = [...input.files];
+  if (!files.length) return;
+
+  const previewList = document.getElementById(type+'Preview');
+  const placeholder = document.getElementById(type+'Placeholder');
+
+  files.forEach(file => {
+    if (file.size > 5 * 1024 * 1024) {
+      alert(`"${file.name}" dépasse 5 Mo et ne sera pas envoyé.`);
+      return;
+    }
+
+    const itemId = 'img_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+    const item = document.createElement('div');
+    item.className = 'upload-item uploading';
+    item.id = itemId;
+
+    const reader = new FileReader();
+    reader.onload = e => {
+      item.innerHTML = `<img src="${e.target.result}"/><div class="upload-spinner">…</div><button class="upload-remove" onclick="event.stopPropagation();removeUpload('${itemId}','${type}')">×</button>`;
+    };
+    reader.readAsDataURL(file);
+    previewList.appendChild(item);
+    placeholder.style.display = 'none';
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        const url = data.data.url;
+        uploadedImages[type].push({ name: file.name, url });
+        const spinner = item.querySelector('.upload-spinner');
+        if (spinner) spinner.remove();
+        item.classList.remove('uploading');
+      } else {
+        throw new Error('Échec upload');
+      }
+    })
+    .catch(() => {
+      item.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#ef4444;text-align:center;padding:.3rem">Erreur</div><button class="upload-remove" onclick="event.stopPropagation();removeUpload('${itemId}','${type}')">×</button>`;
+    });
+  });
+
+  input.value = '';
+}
+
+function removeUpload(itemId, type){
+  const el = document.getElementById(itemId);
+  if (el) {
+    const idx = [...el.parentElement.children].indexOf(el);
+    uploadedImages[type].splice(idx, 1);
+    el.remove();
+  }
+  const previewList = document.getElementById(type+'Preview');
+  if (!previewList.children.length) {
+    document.getElementById(type+'Placeholder').style.display = 'flex';
+  }
+}
+
+// ── CONFIGURATION EMAILJS ──
+const EMAILJS_PUBLIC_KEY = 'IENEk0fXfBBkXFNwj';
+const EMAILJS_SERVICE_ID = 'service_5jg5lod';
+const EMAILJS_TEMPLATE_ID = 'template_9fnztax';
+const NOVASPOT_EMAIL = 'contact@novaspot.fr'; // email qui reçoit les demandes
+
+if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY') {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
+function handleSubmit(){
+  const nom=document.getElementById('f-nom').value.trim();
+  const adresse=document.getElementById('f-adresse').value.trim();
+  const cp=document.getElementById('f-cp').value.trim();
+  const ville=document.getElementById('f-ville').value.trim();
+  const tel=document.getElementById('f-tel').value.trim();
+  const zone=document.getElementById('f-zone').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+
+  if(!nom||!adresse||!cp||!ville||!tel||!email||!zone){
+    alert('Merci de remplir au minimum : nom de l\'entreprise, adresse complète, téléphone, email et zone d\'intervention.');
+    return;
+  }
+
+  const forme=document.getElementById('f-forme').value||'—';
+  const annee=document.getElementById('f-annee').value||'—';
+  const slogan=document.getElementById('f-slogan').value||'—';
+  const effectif=document.getElementById('f-effectif').value||'—';
+  const diplome=document.getElementById('f-diplome').value||'—';
+  const tel2=document.getElementById('f-tel2').value||'—';
+
+  const horaires=[...document.querySelectorAll('[data-day]')].map(inp=>`${inp.dataset.day} : ${inp.value||'Non renseigné'}`).join('\n');
+
+  const metiers=[...document.querySelectorAll('#grid-metiers input:checked')].map(i=>i.value);
+  const types=[...document.querySelectorAll('#grid-types input:checked')].map(i=>i.value);
+  const autrePresta=document.getElementById('f-autre-presta').value;
+
+  const clientele=[...document.querySelectorAll('.card:nth-of-type(5) input:checked')].map(i=>i.value).join(', ')||'—';
+  const diff=document.getElementById('f-diff').value||'—';
+
+  const styleCard=document.querySelector('.style-card.selected');
+  const style=styleCard?styleCard.dataset.style:'Non précisé';
+  const couleurPrincipale=document.getElementById('colorPrimaryHex').value;
+  const couleurSecondaire=document.getElementById('colorSecondaryHex').value;
+  const styleLibre=document.getElementById('f-style-libre').value||'—';
+  const logoLinks = uploadedImages.logo.map(i=>i.url).join('\n') || 'Aucun logo envoyé — à créer à partir du nom';
+  const photosLinks = uploadedImages.photos.map((i,idx)=>`  ${idx+1}. ${i.url}`).join('\n') || '  Aucune photo envoyée';
+
+  const subdomain=document.getElementById('f-subdomain').value||'(à définir)';
+  const plan=document.getElementById('f-plan').value||'À définir ensemble';
+
+  const libre=document.getElementById('f-libre').value||'—';
+
+  const resume=`═══════════════════════════════════
+BRIEF CLIENT — NOVASPOT
+Secteur : Ostéopathie Animale
+═══════════════════════════════════
+
+── 1. ENTREPRISE ──
+Nom : ${nom}
+Forme juridique : ${forme}
+Année de création : ${annee}
+Slogan : ${slogan}
+Effectif : ${effectif}
+Diplôme / Certification : ${diplome}
+
+── 2. COORDONNÉES ──
+Adresse : ${adresse}
+Code postal / Ville : ${cp} ${ville}
+Téléphone principal : ${tel}
+Téléphone secondaire : ${tel2}
+Email : ${email}
+
+── 3. HORAIRES ──
+${horaires}
+
+── 4. PRESTATIONS ──
+Animaux suivis :
+${metiers.length?metiers.map(p=>'  • '+p).join('\n'):'  (aucun sélectionné)'}
+
+Type d'intervention :
+${types.length?types.map(p=>'  • '+p).join('\n'):'  (aucun sélectionné)'}
+
+Autre prestation : ${autrePresta||'—'}
+
+── 5. CLIENTÈLE ──
+Type de clientèle : ${clientele}
+Zone d'intervention : ${zone}
+Différenciation : ${diff}
+
+── 6. STYLE VISUEL ──
+Style préféré : ${style}
+Couleur principale : ${couleurPrincipale}
+Couleur secondaire : ${couleurSecondaire}
+Suggestions libres de style : ${styleLibre}
+Logo : ${logoLinks}
+Photos (${uploadedImages.photos.length}) :
+${photosLinks}
+
+── 7. TECHNIQUE ──
+Sous-domaine souhaité : ${subdomain}.novaspot.fr
+Plan souhaité : ${plan}
+
+── 8. COMPLÉMENT ──
+${libre}
+
+═══════════════════════════════════
+Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpot
+═══════════════════════════════════`;
+
+  document.getElementById('resultBox').textContent=resume;
+
+  const btn=document.getElementById('submitBtn');
+  const originalText=btn.textContent;
+  btn.textContent='Envoi en cours...';
+  btn.disabled=true;
+
+  // Si EmailJS n'est pas configuré, on affiche juste le résumé (mode dégradé)
+  if (typeof emailjs === 'undefined' || EMAILJS_PUBLIC_KEY === 'VOTRE_PUBLIC_KEY') {
+    console.warn('EmailJS non configuré — affichage du résumé uniquement.');
+    document.getElementById('resultHeader').textContent = '✓ Résumé généré';
+    document.getElementById('resultMsg').textContent = 'EmailJS n\'est pas encore configuré. Copiez ce résumé et envoyez-le manuellement.';
+    document.getElementById('resultWrap').classList.add('active');
+    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
+    btn.textContent=originalText;
+    btn.disabled=false;
+    return;
+  }
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    to_email: NOVASPOT_EMAIL,
+    from_name: nom,
+    from_email: email,
+    from_phone: tel,
+    subject: `Nouvelle demande de site — ${nom}`,
+    message: resume
+  }).then(() => {
+    document.getElementById('resultHeader').textContent = '✓ Demande envoyée avec succès';
+    document.getElementById('resultMsg').textContent = 'Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 24h pour finaliser votre site.';
+    document.getElementById('resultWrap').classList.add('active');
+    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
+    btn.textContent='✓ Demande envoyée';
+    document.querySelector('.submit-card').style.opacity='0.6';
+  }).catch((err) => {
+    console.error('Erreur EmailJS:', err);
+    alert('Une erreur est survenue lors de l\'envoi. Merci de copier le résumé et de nous l\'envoyer par email directement.');
+    document.getElementById('resultHeader').textContent = '⚠ Erreur d\'envoi — résumé disponible';
+    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact@novaspot.fr';
+    document.getElementById('resultWrap').classList.add('active');
+    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
+    btn.textContent=originalText;
+    btn.disabled=false;
+  });
+}
+
+function copyResult(){
+  const text=document.getElementById('resultBox').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('copyBtn');
+    btn.textContent='✓ Copié !';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Copier le résumé';btn.classList.remove('copied');},2000);
+  });
+}
+</script>
+</body>
+</html>
