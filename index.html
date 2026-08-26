@@ -573,7 +573,7 @@ function removeUpload(itemId, type){
 const EMAILJS_PUBLIC_KEY = 'IENEk0fXfBBkXFNwj';
 const EMAILJS_SERVICE_ID = 'service_5jg5lod';
 const EMAILJS_TEMPLATE_ID = 'template_9fnztax';
-const NOVASPOT_EMAIL = 'contact@novaspot.fr'; // email qui reçoit les demandes
+const NOVASPOT_EMAIL = 'contact.novaspot@gmail.com'; // email qui reçoit les demandes
 
 if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY') {
   emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -719,7 +719,7 @@ Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpo
     console.error('Erreur EmailJS:', err);
     alert('Une erreur est survenue lors de l\'envoi. Merci de copier le résumé et de nous l\'envoyer par email directement.');
     document.getElementById('resultHeader').textContent = '⚠ Erreur d\'envoi — résumé disponible';
-    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact@novaspot.fr';
+    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact.novaspot@gmail.com';
     document.getElementById('resultWrap').classList.add('active');
     document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
     btn.textContent=originalText;
