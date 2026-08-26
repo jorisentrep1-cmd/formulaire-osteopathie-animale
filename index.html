@@ -406,6 +406,7 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
   <div class="submit-card">
     <div class="submit-title" id="submitTitle">Prêt à envoyer votre demande ?</div>
     <p class="submit-sub" id="submitSub">Votre demande est envoyée directement à NovaSpot. Votre site sera créé sous 48h.</p>
+    <input type="text" id="f-hp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
     <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Envoyer ma demande →</button>
   </div>
 
@@ -578,7 +579,10 @@ if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY')
   emailjs.init(EMAILJS_PUBLIC_KEY);
 }
 
+const formLoadedAt = Date.now();
 function handleSubmit(){
+  if(document.getElementById('f-hp').value){return;}
+  if(Date.now()-formLoadedAt < 3000){return;}
   const nom=document.getElementById('f-nom').value.trim();
   const adresse=document.getElementById('f-adresse').value.trim();
   const cp=document.getElementById('f-cp').value.trim();
