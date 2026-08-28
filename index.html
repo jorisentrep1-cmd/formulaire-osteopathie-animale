@@ -187,6 +187,16 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
       <label class="fl">Diplôme / Certification<span class="opt">(optionnel — rassure vos clients)</span></label>
       <input class="fi" type="text" id="f-diplome" placeholder="Ex: Diplômée du CFPAO, formation continue équine"/>
     </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Numéro SIRET<span class="opt">(optionnel — nécessaire pour les mentions légales de votre site)</span></label>
+        <input class="fi" type="text" id="f-siret" placeholder="Ex: 123 456 789 00012"/>
+      </div>
+      <div class="fg">
+        <label class="fl">Nom du responsable légal<span class="opt">(optionnel — gérant, dirigeant)</span></label>
+        <input class="fi" type="text" id="f-responsable" placeholder="Ex: Jean Dupont"/>
+      </div>
+    </div>
   </div>
 
   <!-- 2. COORDONNÉES -->
@@ -222,6 +232,16 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
     <div class="fg">
       <label class="fl">Email de contact<span class="req">*</span></label>
       <input class="fi" type="email" id="f-email" placeholder="contact@monentreprise.fr" oninput="updateProgress()"/>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Facebook<span class="opt">(optionnel — lien complet)</span></label>
+        <input class="fi" type="text" id="f-facebook" placeholder="https://facebook.com/..."/>
+      </div>
+      <div class="fg">
+        <label class="fl">Instagram<span class="opt">(optionnel — lien complet)</span></label>
+        <input class="fi" type="text" id="f-instagram" placeholder="https://instagram.com/..."/>
+      </div>
     </div>
   </div>
 
@@ -292,15 +312,87 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
       <input class="fi" type="text" id="f-zone" placeholder="Ex: Rennes et périphérie (35)" oninput="updateProgress()"/>
     </div>
     <div class="fg">
+      <label class="fl">Villes précises couvertes<span class="opt">(optionnel — aide au référencement local)</span></label>
+      <input class="fi" type="text" id="f-villes" placeholder="Ex: Lyon, Villeurbanne, Vénissieux, Bron"/>
+      <div class="hint">Listez les villes où vous intervenez le plus, séparées par des virgules.</div>
+    </div>
+    <div class="fg">
       <label class="fl">Ce qui vous différencie de la concurrence<span class="opt">(optionnel)</span></label>
       <textarea class="ft" id="f-diff" placeholder="Ex: Diplômée d'un centre agréé, approche douce, suivi personnalisé..."></textarea>
     </div>
+    <div class="fg">
+      <label class="fl">Certifications, labels, assurances<span class="opt">(optionnel — à mettre en avant sur le site)</span></label>
+      <input class="fi" type="text" id="f-certifs" placeholder="Ex: Assurance décennale, RGE, certifié bio..."/>
+    </div>
   </div>
 
-  <!-- 6. STYLE VISUEL -->
+  <!-- 6. AVIS CLIENTS -->
   <div class="card">
     <div class="card-header">
       <div class="card-num">6</div>
+      <div><div class="card-title">Avis clients existants</div><div class="card-sub">Si vous avez déjà de vrais avis à afficher (optionnel)</div></div>
+    </div>
+    <div class="hint" style="margin-bottom:1.25rem">Uniquement des avis réels que vous avez reçus — jamais de faux avis inventés.</div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Nom du client (avis 1)</label>
+        <input class="fi" type="text" id="f-avis1-nom" placeholder="Ex: Marie D."/>
+      </div>
+      <div class="fg">
+        <label class="fl">Note</label>
+        <select class="fs" id="f-avis1-note">
+          <option value="">—</option>
+          <option>5 étoiles</option>
+          <option>4 étoiles</option>
+          <option>3 étoiles</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg">
+      <textarea class="ft" id="f-avis1-texte" placeholder="Texte de l'avis..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Nom du client (avis 2)</label>
+        <input class="fi" type="text" id="f-avis2-nom" placeholder="Ex: Karim B."/>
+      </div>
+      <div class="fg">
+        <label class="fl">Note</label>
+        <select class="fs" id="f-avis2-note">
+          <option value="">—</option>
+          <option>5 étoiles</option>
+          <option>4 étoiles</option>
+          <option>3 étoiles</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg">
+      <textarea class="ft" id="f-avis2-texte" placeholder="Texte de l'avis..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl">Nom du client (avis 3)</label>
+        <input class="fi" type="text" id="f-avis3-nom" placeholder="Ex: Sophie L."/>
+      </div>
+      <div class="fg">
+        <label class="fl">Note</label>
+        <select class="fs" id="f-avis3-note">
+          <option value="">—</option>
+          <option>5 étoiles</option>
+          <option>4 étoiles</option>
+          <option>3 étoiles</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg">
+      <textarea class="ft" id="f-avis3-texte" placeholder="Texte de l'avis..."></textarea>
+    </div>
+  </div>
+
+  <!-- 7. STYLE VISUEL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-num">7</div>
       <div><div class="card-title">Style du site</div><div class="card-sub">L'ambiance visuelle qui vous ressemble</div></div>
     </div>
     <div class="fg">
@@ -373,13 +465,17 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
   <!-- 7. TECHNIQUE -->
   <div class="card">
     <div class="card-header">
-      <div class="card-num">7</div>
+      <div class="card-num">8</div>
       <div><div class="card-title">Informations techniques</div><div class="card-sub">Pour la mise en ligne du site</div></div>
     </div>
     <div class="fg">
       <label class="fl">Nom souhaité pour le sous-domaine<span class="opt">(sans espace, minuscules — ex: monentreprise)</span></label>
       <input class="fi" type="text" id="f-subdomain" placeholder="monentreprise"/>
       <div class="hint">Votre site sera accessible sur : monentreprise.novaspot.fr (ou votre propre domaine si plan Pro/Premium)</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Possédez-vous déjà un nom de domaine ?<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-domaine-existant" placeholder="Ex: monentreprise.fr — laissez vide si non"/>
     </div>
     <div class="fg">
       <label class="fl">Plan souhaité</label>
@@ -395,7 +491,7 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
   <!-- 8. COMPLÉMENT -->
   <div class="card">
     <div class="card-header">
-      <div class="card-num">8</div>
+      <div class="card-num">9</div>
       <div><div class="card-title">Informations complémentaires</div><div class="card-sub">Tout ce qui peut nous aider</div></div>
     </div>
     <div class="fg">
