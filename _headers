@@ -1,0 +1,14 @@
+# En-têtes de sécurité (Cloudflare Pages).
+# Le bloc /* doit rester AVANT les règles spécifiques, sinon il écrase leur cache.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: SAMEORIGIN
+
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/css/*
+  Cache-Control: public, max-age=604800

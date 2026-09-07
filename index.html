@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
 <title>NovaSpot — Formulaire de création de site | Ostéopathie Animale</title>
 <meta name="description" content="Formulaire de création de site web NovaSpot pour praticiens en ostéopathie animale. 5 minutes pour décrire votre activité, votre site est en ligne sous 48h."/>
 <link rel="canonical" href="https://osteo-animal.novaspot.fr/"/>
@@ -670,9 +671,9 @@ function removeUpload(itemId, type){
 
 // ── CONFIGURATION EMAILJS ──
 const EMAILJS_PUBLIC_KEY = 'IENEk0fXfBBkXFNwj';
-const EMAILJS_SERVICE_ID = 'service_5jg5lod';
+const EMAILJS_SERVICE_ID = 'service_ovh';
 const EMAILJS_TEMPLATE_ID = 'template_9fnztax';
-const NOVASPOT_EMAIL = 'contact.novaspot@gmail.com'; // email qui reçoit les demandes
+const NOVASPOT_EMAIL = 'contact@novaspot.fr'; // email qui reçoit les demandes
 
 if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY') {
   emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -818,7 +819,7 @@ Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpo
     console.error('Erreur EmailJS:', err);
     alert('Une erreur est survenue lors de l\'envoi. Merci de copier le résumé et de nous l\'envoyer par email directement.');
     document.getElementById('resultHeader').textContent = '⚠ Erreur d\'envoi — résumé disponible';
-    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact.novaspot@gmail.com';
+    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact@novaspot.fr';
     document.getElementById('resultWrap').classList.add('active');
     document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
     btn.textContent=originalText;
@@ -836,7 +837,5 @@ function copyResult(){
   });
 }
 </script>
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
