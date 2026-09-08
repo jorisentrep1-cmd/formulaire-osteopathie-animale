@@ -117,6 +117,8 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
 .submit-card{background:var(--navy);border-radius:8px;padding:2rem;text-align:center;margin-top:1.5rem}
 .submit-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem}
 .submit-sub{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem;line-height:1.6}
+.submit-rgpd{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.65;margin-top:1.4rem;max-width:520px;margin-left:auto;margin-right:auto}
+.submit-rgpd a{color:rgba(255,255,255,.75);text-decoration:underline}
 .btn-submit{background:var(--orange);color:#fff;border:none;padding:.9rem 2.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all var(--t);border-radius:5px}
 .btn-submit:hover{background:var(--orange2);transform:translateY(-2px)}
 
@@ -509,6 +511,11 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
     <p class="submit-sub" id="submitSub">Votre demande est envoyée directement à NovaSpot. Votre site sera créé sous 48h.</p>
     <input type="text" id="f-hp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
     <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Envoyer ma demande →</button>
+    <p class="submit-rgpd">
+      Les informations transmises servent uniquement à concevoir votre site et à vous recontacter. Elles ne sont ni vendues, ni cédées.
+      Vous pouvez demander leur suppression à tout moment — voir la <a href="https://novaspot.fr/confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+      Si vous nous transmettez des avis de vos clients, assurez-vous d'avoir leur accord pour les publier sur votre site.
+    </p>
   </div>
 
   <!-- RESULT -->
