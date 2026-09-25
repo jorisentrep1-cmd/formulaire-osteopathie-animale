@@ -5,853 +5,931 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="robots" content="noindex,nofollow"/>
-<title>NovaSpot — Formulaire de création de site | Ostéopathie Animale</title>
-<meta name="description" content="Formulaire de création de site web NovaSpot pour praticiens en ostéopathie animale. 5 minutes pour décrire votre activité, votre site est en ligne sous 48h."/>
+<!-- Page générée : ne pas modifier ici. Source : ~/.claude/skills/novaspot/formulaires/ (modele.html + secteurs.json, puis generer.py). -->
+<title>Créer votre site — Ostéopathie animale | NovaSpot</title>
+<meta name="description" content="Tout ce qu'il me faut pour créer le site de votre entreprise : coordonnées, prestations, photos. Comptez un quart d'heure."/>
 <link rel="canonical" href="https://osteo-animal.novaspot.fr/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <!-- EmailJS : version figée + empreinte. Pour mettre à jour, changer la version ET recalculer integrity. -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
 <style>
 :root{
-  --navy:#0f1f3d;--orange:#047857;--orange2:#059669;
-  --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#8a9ab8;
-  --green:#22c55e;--white:#fff;
-  --t:.25s ease;
+  --navy:#0f1f3d;--orange:#047857;--orange2:#059669;--green-dk:#34d399;
+  --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
+  --trait:#7d8aa3;--err:#b91c1c;
+  --t:.2s ease;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:6rem;-webkit-text-size-adjust:100%}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--light);color:var(--text);padding:0 0 4rem}
+button{font-family:inherit}
+[hidden]{display:none!important}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* HEADER */
-header{background:var(--navy);padding:3rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(4,120,87,.15) 0%,transparent 65%)}
-.h-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(4,120,87,.12);border:1px solid rgba(4,120,87,.3);padding:.3rem .9rem;font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange2);margin-bottom:1.25rem;position:relative;z-index:1}
-.h-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:.75rem;position:relative;z-index:1}
-.h-title span{color:var(--orange)}
-.h-sub{font-size:.88rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+/* EN-TÊTE */
+header{background:var(--navy);color:#fff;text-align:center;padding:2.5rem 1.5rem 4.25rem}
+.h-moi{display:inline-flex;align-items:center;gap:.75rem;text-align:left;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.4;margin-bottom:1.5rem}
+.h-moi b{display:block;color:#fff;font-size:.9rem}
+.h-moi img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 3px rgba(255,255,255,.14)}
+.h-title{font-size:clamp(1.55rem,4.2vw,2.3rem);font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-bottom:.9rem}
+.h-sub{font-size:.9rem;color:rgba(255,255,255,.78);max-width:540px;margin:0 auto;line-height:1.7}
+.h-sub .req{color:var(--green-dk);margin:0}
+.h-tel{font-size:.86rem;color:rgba(255,255,255,.78);margin-top:1rem}
+.h-tel a{color:var(--green-dk);font-weight:700;text-decoration:none;white-space:nowrap}
+.h-tel a:hover{text-decoration:underline}
 
-/* CONTAINER */
-.container{max-width:720px;margin:-2rem auto 0;padding:0 1.5rem;position:relative;z-index:2}
+.container{max-width:720px;margin:-2.25rem auto 0;padding:0 1.25rem;position:relative}
 
-/* PROGRESS */
-.progress-wrap{background:#fff;border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;box-shadow:0 4px 24px rgba(15,31,61,.06)}
-.progress-bar{height:6px;background:var(--light);border-radius:3px;overflow:hidden;margin-bottom:.6rem}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--orange2));border-radius:3px;width:0%;transition:width .4s ease}
-.progress-text{font-size:.72rem;color:var(--text2);text-align:center}
+/* BROUILLON REPRIS */
+.brouillon{background:#fff;border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:8px;padding:.85rem 1.1rem;margin-bottom:.9rem;font-size:.84rem;color:var(--text);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem 1rem}
+.lien-btn{background:none;border:none;color:var(--orange);font-weight:700;font-size:.84rem;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0}
 
-/* CARD (section) */
-.card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;margin-bottom:1.25rem;box-shadow:0 2px 16px rgba(15,31,61,.04)}
-.card-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.card-num{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
-.card-title{font-size:1.05rem;font-weight:700;color:var(--navy)}
-.card-sub{font-size:.75rem;color:var(--text3);margin-top:.15rem}
+/* PROGRESSION (reste visible en haut de l'écran) */
+.progress-wrap{position:sticky;top:.5rem;z-index:10;background:#fff;border:1px solid var(--border);border-radius:10px;padding:.8rem 1.1rem;margin-bottom:1.25rem;box-shadow:0 6px 20px rgba(15,31,61,.08)}
+.progress-bar{height:6px;background:var(--light);border-radius:3px;overflow:hidden;margin-bottom:.55rem}
+.progress-fill{height:100%;width:0;background:var(--orange);border-radius:3px;transition:width .4s ease}
+.progress-text{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.25rem .9rem;font-size:.78rem;color:var(--text2)}
+.progress-manque{background:none;border:none;color:var(--err);font-weight:700;font-size:.78rem;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px}
+.progress-ok{color:var(--orange);font-weight:700}
 
-/* FORM ELEMENTS */
-.fg{margin-bottom:1.25rem}
+/* SECTIONS */
+.card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.9rem;margin-bottom:1.25rem}
+.card-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1.6rem;padding-bottom:1.15rem;border-bottom:1px solid var(--border)}
+.card-num{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;transition:background var(--t)}
+.card.rempli .card-num{background:var(--orange)}
+.card-title{font-size:1.06rem;font-weight:700;color:var(--navy)}
+.card-sub{font-size:.8rem;color:var(--text3);margin-top:.15rem;line-height:1.5}
+
+/* CHAMPS */
+.fg{margin:0 0 1.3rem;border:0;min-width:0}
 .fg:last-child{margin-bottom:0}
-.fl{display:block;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.5rem}
-.fl .req{color:var(--orange);margin-left:.2rem}
-.fl .opt{color:var(--text3);font-weight:400;font-size:.7rem;margin-left:.4rem}
-.fi,.ft,.fs{-webkit-appearance:none;appearance:none;width:100%;background:var(--light);border:1.5px solid var(--border);color:var(--text);padding:.75rem 1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;outline:none;transition:border-color var(--t),background var(--t);border-radius:5px}
-.fi:focus,.ft:focus,.fs:focus{border-color:var(--orange);background:#fff}
-.ft{resize:vertical;min-height:80px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.hint{font-size:.72rem;color:var(--text3);margin-top:.4rem;line-height:1.5}
+.fl{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.5rem;padding:0}
+legend.fl{float:left;width:100%}
+legend.fl+*{clear:both}
+.req{color:var(--orange);margin-left:.15rem}
+.opt{color:var(--text3);font-weight:400;font-size:.74rem;margin-left:.35rem}
+.fi,.ft,.fs{-webkit-appearance:none;appearance:none;width:100%;background-color:var(--light);border:1.5px solid var(--border);color:var(--text);padding:.75rem 1rem;font:inherit;font-size:.88rem;outline:none;border-radius:6px;transition:border-color var(--t),background-color var(--t)}
+.fs{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a6a88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;background-size:1rem;padding-right:2.5rem}
+.fi:focus,.ft:focus,.fs:focus{border-color:var(--orange);background-color:#fff}
+.fi::placeholder,.ft::placeholder{color:var(--text3);opacity:1}
+.ft{resize:vertical;min-height:88px;line-height:1.55}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1rem;margin-bottom:1.3rem}
+.form-row:last-child{margin-bottom:0}
+.form-row>.fg{margin-bottom:0}
+.hint{font-size:.76rem;color:var(--text3);margin-top:.45rem;line-height:1.55}
+.hint a{color:var(--orange);font-weight:600}
+.fg.err .fi,.fg.err .ft{border-color:var(--err);background-color:#fff}
+.fg-err{font-size:.76rem;color:var(--err);font-weight:600;margin-top:.4rem}
+.case-seule{display:flex;align-items:flex-start;gap:.6rem;font-size:.8rem;color:var(--text2);margin-top:.75rem;cursor:pointer;line-height:1.45}
+.case-seule input{width:1.05rem;height:1.05rem;margin-top:.1rem;accent-color:var(--orange);flex-shrink:0}
 
-/* UPLOAD ZONES */
-.upload-zone{border:2px dashed var(--border);border-radius:6px;padding:1.5rem;cursor:pointer;transition:all var(--t);background:var(--light)}
-.upload-zone:hover{border-color:var(--orange);background:rgba(4,120,87,.03)}
-.upload-zone.dragover{border-color:var(--orange);background:rgba(4,120,87,.06)}
-.upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;pointer-events:none}
-.upload-icon{font-size:1.8rem;line-height:0}
-.ic-badge{width:.95rem;height:.95rem;flex-shrink:0}
-.ic-style{width:1.5rem;height:1.5rem}
-.ic-up{width:1.8rem;height:1.8rem;opacity:.55}
-.ic-btn{width:1rem;height:1rem;flex-shrink:0}
-.btn-copy{display:inline-flex;align-items:center;gap:.5rem;justify-content:center}
-.upload-text{font-size:.78rem;color:var(--text2);font-weight:500}
-.upload-preview-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.75rem}
-.upload-preview-list:empty{margin-top:0}
-.upload-item{position:relative;width:70px;height:70px;border-radius:6px;overflow:hidden;border:1.5px solid var(--border);background:#fff}
-.upload-item img{width:100%;height:100%;object-fit:cover;display:block}
-.upload-item.uploading img{opacity:.4}
-.upload-spinner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--orange);background:rgba(255,255,255,.7)}
-.upload-remove{position:absolute;top:2px;right:2px;width:18px;height:18px;background:rgba(0,0,0,.6);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;cursor:pointer;border:none}
-.upload-remove:hover{background:#ef4444}
-.upload-error{font-size:.68rem;color:#ef4444;margin-top:.5rem}
-
-/* CHECKBOX GRID */
-.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.check-item{display:flex;align-items:center;gap:.7rem;padding:.75rem .9rem;background:var(--light);border:1.5px solid var(--border);border-radius:5px;cursor:pointer;transition:all var(--t)}
-.check-item:hover{border-color:rgba(4,120,87,.3)}
-.check-item.checked{background:rgba(4,120,87,.06);border-color:var(--orange)}
-.check-item input{display:none}
-.check-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all var(--t);background:#fff}
-.check-item.checked .check-box{background:var(--orange);border-color:var(--orange)}
-.check-box::after{content:'✓';color:#fff;font-size:.7rem;opacity:0;transition:opacity var(--t)}
-.check-item.checked .check-box::after{opacity:1}
-.check-label{font-size:.8rem;color:var(--text);font-weight:500}
-
-/* COLOR PICKER */
-.color-picker-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.color-picker-input{width:56px;height:56px;border-radius:10px;border:2px solid var(--border);cursor:pointer;padding:0;background:none;flex-shrink:0}
-.color-picker-input::-webkit-color-swatch-wrapper{padding:3px}
-.color-picker-input::-webkit-color-swatch{border-radius:7px;border:none}
-.color-picker-info{flex:1}
-.color-picker-label{font-size:.72rem;color:var(--text2);font-weight:600;margin-bottom:.3rem}
-.color-picker-hex{font-family:'SF Mono',Consolas,monospace;font-size:.85rem;font-weight:700;color:var(--navy);background:var(--light);border:1.5px solid var(--border);padding:.4rem .7rem;border-radius:5px;width:110px;text-transform:uppercase}
-.color-presets{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-.preset-swatch{width:28px;height:28px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:all var(--t)}
-.preset-swatch:hover{transform:scale(1.15);border-color:var(--border)}
-.color-preview-bar{height:8px;border-radius:4px;margin-top:1.25rem;overflow:hidden;display:flex}
-.color-preview-half{flex:1}
-
-/* STYLE CARDS */
-.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.style-card{border:1.5px solid var(--border);border-radius:6px;padding:1rem;cursor:pointer;transition:all var(--t);text-align:center}
-.style-card:hover{border-color:rgba(4,120,87,.3)}
-.style-card.selected{border-color:var(--orange);background:rgba(4,120,87,.05)}
-.style-icon{font-size:1.5rem;margin-bottom:.5rem}
-.style-name{font-size:.8rem;font-weight:700;color:var(--navy)}
-.style-desc{font-size:.68rem;color:var(--text2);margin-top:.2rem}
+/* ADRESSE DU SITE */
+.suffixe{display:flex}
+.suffixe .fi{border-radius:6px 0 0 6px;min-width:0}
+.suffixe span{display:flex;align-items:center;padding:0 .9rem;background:#fff;border:1.5px solid var(--border);border-left:0;border-radius:0 6px 6px 0;font-size:.86rem;color:var(--text2);white-space:nowrap}
 
 /* HORAIRES */
-.horaire-row{display:grid;grid-template-columns:100px 1fr;gap:.75rem;align-items:center;margin-bottom:.6rem}
-.horaire-day{font-size:.78rem;font-weight:600;color:var(--text2)}
+.horaire-row{display:grid;grid-template-columns:96px 1fr;gap:.75rem;align-items:center;margin-bottom:.55rem}
+.horaire-row label{font-size:.8rem;font-weight:600;color:var(--text2)}
+.btn-lien{display:inline-flex;align-items:center;gap:.4rem;background:#fff;border:1.5px solid var(--border);color:var(--navy);font-size:.8rem;font-weight:600;padding:.55rem .9rem;border-radius:6px;cursor:pointer;margin-top:.4rem;transition:border-color var(--t)}
+.btn-lien:hover{border-color:var(--navy)}
 
-/* SUBMIT */
-.submit-card{background:var(--navy);border-radius:8px;padding:2rem;text-align:center;margin-top:1.5rem}
-.submit-title{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.submit-sub{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem;line-height:1.6}
-.submit-rgpd{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.65;margin-top:1.4rem;max-width:520px;margin-left:auto;margin-right:auto}
-.submit-rgpd a{color:rgba(255,255,255,.75);text-decoration:underline}
-.btn-submit{background:var(--orange);color:#fff;border:none;padding:.9rem 2.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all var(--t);border-radius:5px}
-.btn-submit:hover{background:var(--orange2);transform:translateY(-2px)}
+/* CASES À COCHER ET CHOIX */
+.check-grid,.choix-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.check-item,.choix{position:relative;display:flex;align-items:center;gap:.7rem;padding:.75rem .9rem;background:var(--light);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:border-color var(--t),background-color var(--t)}
+.choix{align-items:flex-start;padding:.95rem 1rem;border-radius:8px}
+.check-item:hover,.choix:hover{border-color:rgba(4,120,87,.45)}
+.check-item input,.choix input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.check-item:has(input:checked),.choix:has(input:checked){background:rgba(4,120,87,.06);border-color:var(--orange)}
+.check-item:has(input:focus-visible),.choix:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:2px}
+.check-box{width:18px;height:18px;border:1.5px solid var(--trait);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#fff;transition:background var(--t),border-color var(--t)}
+.check-box.rond{border-radius:50%}
+.choix .check-box{margin-top:.1rem}
+.check-box::after{content:'';width:9px;height:5px;border:solid #fff;border-width:0 0 2px 2px;transform:translateY(-1px) rotate(-45deg);opacity:0}
+.check-box.rond::after{width:8px;height:8px;border:0;border-radius:50%;background:#fff;transform:none}
+:checked~.check-box{background:var(--orange);border-color:var(--orange)}
+:checked~.check-box::after{opacity:1}
+.check-label{font-size:.83rem;color:var(--text);font-weight:500;line-height:1.4}
+.choix-corps{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.choix-titre{font-size:.86rem;font-weight:700;color:var(--navy)}
+.choix-desc{font-size:.77rem;color:var(--text2);line-height:1.5}
+.choix-prix{font-size:.8rem;font-weight:700;color:var(--orange);margin-top:.2rem}
+.choix-pop{position:absolute;top:-.65rem;right:.8rem;background:var(--orange);color:#fff;font-size:.64rem;font-weight:700;padding:.18rem .55rem;border-radius:20px}
+.choix-large{grid-column:1/-1}
+.choix-grid.plans{gap:1rem .6rem;margin-top:.3rem}
+.choix-demo{display:grid;grid-template-columns:minmax(0,210px) 1fr;gap:1rem;align-items:center;flex:1}
+.choix-demo img{width:100%;height:auto;display:block;border-radius:5px;border:1px solid var(--border)}
+.sous-choix{margin-top:1rem}
 
-/* RESULT MODAL */
-.result-wrap{display:none;background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;margin-top:1.5rem}
-.result-wrap.active{display:block}
-.result-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;color:var(--green);font-weight:700;font-size:1rem}
-.result-box{background:var(--light);border:1px solid var(--border);border-radius:6px;padding:1.25rem;font-family:'SF Mono',Consolas,monospace;font-size:.72rem;line-height:1.8;color:var(--text);white-space:pre-wrap;max-height:400px;overflow-y:auto;margin-bottom:1rem}
-.btn-copy{background:var(--navy);color:#fff;border:none;padding:.75rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;border-radius:5px;transition:all var(--t)}
-.btn-copy:hover{background:#1e3660}
-.btn-copy.copied{background:var(--green)}
+/* COULEURS */
+.couleurs-choix{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.25rem;margin-top:1rem;padding:1rem;border:1px dashed var(--border);border-radius:8px}
+.couleur-ligne{display:flex;align-items:center;gap:.75rem}
+.couleur-ligne input[type=color]{width:52px;height:44px;border:1.5px solid var(--border);border-radius:8px;padding:2px;background:#fff;cursor:pointer;flex-shrink:0}
+.couleur-nom{font-size:.8rem;color:var(--text2)}
+.presets{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.preset{width:26px;height:26px;border-radius:6px;border:2px solid #fff;box-shadow:0 0 0 1px var(--border);cursor:pointer}
+.preset[aria-pressed=true]{box-shadow:0 0 0 2px var(--navy)}
+
+/* ENVOI DE FICHIERS */
+.upload-zone{display:block;border:2px dashed var(--border);border-radius:8px;padding:1.4rem;cursor:pointer;background:var(--light);text-align:center;transition:border-color var(--t),background-color var(--t)}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--orange);background:rgba(4,120,87,.04)}
+.upload-zone:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:2px}
+.upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:.45rem}
+.upload-text{font-size:.82rem;color:var(--text2);font-weight:600}
+.ic-up{width:1.8rem;height:1.8rem;color:var(--text2)}
+.upload-preview-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.75rem}
+.upload-preview-list:empty{display:none}
+.upload-item{position:relative;width:76px;height:76px;border-radius:6px;overflow:hidden;border:1.5px solid var(--border);background:#fff}
+.upload-item img{width:100%;height:100%;object-fit:cover;display:block}
+.upload-item.uploading img,.upload-item.echec img{opacity:.35}
+.upload-etat{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:700;color:var(--navy);text-align:center;padding:.2rem}
+.upload-item.echec .upload-etat{color:var(--err)}
+.upload-remove{position:absolute;top:3px;right:3px;width:22px;height:22px;background:rgba(15,31,61,.75);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;line-height:1;cursor:pointer;border:none}
+.upload-remove:hover{background:var(--err)}
+.conseil{background:rgba(4,120,87,.05);border:1px solid rgba(4,120,87,.2);border-radius:8px;padding:.9rem 1rem;font-size:.8rem;color:var(--text);line-height:1.6;margin-bottom:.8rem}
+.conseil b{color:var(--navy)}
+.ic{width:1rem;height:1rem;flex-shrink:0}
+
+/* AVIS REÇUS AILLEURS */
+details.plus{border:1px solid var(--border);border-radius:8px;padding:.1rem 1rem;margin-top:1rem}
+details.plus summary{cursor:pointer;font-size:.83rem;font-weight:600;color:var(--navy);padding:.8rem 0;list-style-position:outside}
+details.plus[open] summary{margin-bottom:.5rem}
+details.plus .avis{padding:.9rem 0;border-top:1px solid var(--border)}
+details.plus .avis:last-child{padding-bottom:1rem}
+
+/* ENVOI */
+.submit-card{background:var(--navy);border-radius:10px;padding:2rem;text-align:center;margin-top:1.5rem;color:#fff}
+.submit-title{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.submit-sub{font-size:.85rem;color:rgba(255,255,255,.78);margin:0 auto 1.5rem;line-height:1.65;max-width:520px}
+.submit-err{background:#fff;color:var(--err);font-size:.82rem;font-weight:600;border-radius:6px;padding:.6rem .9rem;margin:0 auto 1rem;max-width:460px}
+.btn-submit{background:var(--orange);color:#fff;border:none;padding:.95rem 2.4rem;font-size:.9rem;font-weight:700;cursor:pointer;border-radius:6px;transition:background var(--t)}
+.btn-submit:hover{background:var(--orange2)}
+.btn-submit:disabled{opacity:.7;cursor:wait}
+.submit-rgpd{font-size:.74rem;color:rgba(255,255,255,.6);line-height:1.65;margin:1.4rem auto 0;max-width:520px}
+.submit-rgpd a{color:var(--green-dk)}
+
+/* RÉSULTAT */
+.result-wrap{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;margin-top:1.5rem}
+.result-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;color:var(--orange);font-weight:800;font-size:1.2rem}
+.result-header.echec{color:var(--err)}
+.result-header:focus{outline:none}
+.result-msg{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:1.25rem}
+.result-msg a{color:var(--orange);font-weight:700}
+.result-details summary{cursor:pointer;font-size:.84rem;font-weight:600;color:var(--navy);margin-bottom:.8rem}
+.result-box{background:var(--light);border:1px solid var(--border);border-radius:6px;padding:1.1rem;font-family:'SF Mono',Consolas,monospace;font-size:.74rem;line-height:1.75;color:var(--text);white-space:pre-wrap;max-height:380px;overflow-y:auto;margin-bottom:1rem}
+.btn-copy{display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;border:none;padding:.75rem 1.4rem;font-size:.82rem;font-weight:700;cursor:pointer;border-radius:6px}
+.btn-copy.copied{background:var(--orange)}
 
 @media(max-width:640px){
-  .form-row,.check-grid,.style-grid{grid-template-columns:1fr}
-  header{padding:2.5rem 1.25rem 3.5rem}
-  .card{padding:1.5rem}
+  header{padding:2rem 1.25rem 3.75rem}
+  .container{padding:0 .9rem}
+  .card{padding:1.4rem 1.15rem}
+  .form-row,.check-grid,.choix-grid,.couleurs-choix{grid-template-columns:1fr}
+  .choix-demo{grid-template-columns:1fr}
   .fi,.ft,.fs{font-size:1rem}
+  .progress-wrap{top:.35rem;padding:.65rem .9rem}
+  .horaire-row{grid-template-columns:78px 1fr}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="h-badge"><svg class="ic-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 8.4 12 3 3.4 8.4v7.2L12 21l8.6-5.4z"/><path d="M12 12v9"/><path d="M20.6 8.4 12 12 3.4 8.4"/></svg> Secteur Ostéopathie Animale</div>
-  <h1 class="h-title">Créons ensemble<br/><span>le site de votre entreprise.</span></h1>
-  <p class="h-sub">Remplissez ce formulaire (5 minutes), on s'occupe du reste. Votre site sera prêt sous 48h à partir de la réception de vos éléments : logo, photos et informations.</p>
+  <div class="h-moi"><img src="/img/joris-arnoux.jpg" alt="" width="52" height="52"/><span><b>Joris Arnoux</b>NovaSpot · Chiens · Chats · Chevaux · NAC</span></div>
+  <h1 class="h-title">Ce qu'il me faut pour faire votre site</h1>
+  <p class="h-sub">Comptez un quart d'heure. Seuls les champs marqués d'une étoile (<span class="req">*</span>) sont obligatoires, le reste peut se compléter au téléphone. Si vous devez vous interrompre, vos réponses restent enregistrées sur cet appareil.</p>
+  <p class="h-tel">Une question en remplissant ? Appelez-moi au <a href="tel:+33646574982">06&nbsp;46&nbsp;57&nbsp;49&nbsp;82</a></p>
 </header>
 
-<div class="container">
+<main class="container">
+<div id="formulaire">
+
+  <div class="brouillon" id="brouillon" role="status" hidden>
+    <span>Vos réponses du <span id="brouillonDate"></span> ont été reprises.</span>
+    <button type="button" class="lien-btn" id="brouillonEffacer">Recommencer à zéro</button>
+  </div>
 
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-text" id="progressText">0% complété</div>
+    <div class="progress-text">
+      <span id="progressSections">Sections remplies : 0 sur 9</span>
+      <button type="button" class="progress-manque" id="progressManque">7 champs obligatoires à remplir</button>
+      <span class="progress-ok" id="progressOk" hidden>Obligatoires remplis : vous pouvez envoyer quand vous voulez</span>
+    </div>
   </div>
 
-  <!-- 1. IDENTITÉ -->
-  <div class="card">
+  <!-- 1. ENTREPRISE -->
+  <section class="card" data-section aria-labelledby="t1">
     <div class="card-header">
-      <div class="card-num">1</div>
-      <div><h2 class="card-title">Votre entreprise</h2><div class="card-sub">Les informations de base</div></div>
+      <div class="card-num" aria-hidden="true">1</div>
+      <div><h2 class="card-title" id="t1">Votre entreprise</h2><p class="card-sub">Le nom tel qu'il apparaîtra sur le site</p></div>
     </div>
     <div class="fg">
-      <label class="fl">Nom de l'entreprise<span class="req">*</span></label>
-      <input class="fi" type="text" id="f-nom" placeholder="Ex: Cabinet Léa Martin" oninput="updateProgress()"/>
+      <label class="fl" for="f-nom">Nom de l'entreprise<span class="req" aria-hidden="true">*</span></label>
+      <input class="fi" type="text" id="f-nom" autocomplete="organization" required placeholder="Ex : Cabinet Léa Martin"/>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-slogan">Slogan ou phrase d'accroche<span class="opt">(optionnel, je peux vous en proposer un)</span></label>
+      <input class="fi" type="text" id="f-slogan" placeholder="Ex : Le bien-être animal, ma priorité"/>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-diplome">Diplôme ou formation<span class="opt">(optionnel, ça rassure vos clients)</span></label>
+      <input class="fi" type="text" id="f-diplome" placeholder="Ex : diplômée du CFPAO, formation continue équine"/>
+    </div>
+  </section>
+
+  <!-- 2. COORDONNÉES -->
+  <section class="card" data-section aria-labelledby="t2">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">2</div>
+      <div><h2 class="card-title" id="t2">Coordonnées</h2><p class="card-sub">Ce qui s'affichera sur le site pour vous joindre</p></div>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-adresse">Adresse<span class="req" aria-hidden="true">*</span></label>
+      <input class="fi" type="text" id="f-adresse" autocomplete="street-address" required placeholder="Ex : 5 route de Blaye"/>
+      <label class="case-seule"><input type="checkbox" id="f-ville-seule"/><span>N'afficher que la ville sur le site. L'adresse complète reste dans les mentions légales, c'est obligatoire.</span></label>
     </div>
     <div class="form-row">
       <div class="fg">
-        <label class="fl">Forme juridique<span class="opt">(optionnel)</span></label>
-        <select class="fs" id="f-forme" aria-label="Forme juridique de l'entreprise">
-          <option value="">Non renseigné</option>
-          <option>Auto-entrepreneur</option>
-          <option>SARL</option>
+        <label class="fl" for="f-cp">Code postal<span class="req" aria-hidden="true">*</span></label>
+        <input class="fi" type="text" id="f-cp" autocomplete="postal-code" inputmode="numeric" maxlength="5" required placeholder="Ex : 33820"/>
+      </div>
+      <div class="fg">
+        <label class="fl" for="f-ville">Ville<span class="req" aria-hidden="true">*</span></label>
+        <input class="fi" type="text" id="f-ville" autocomplete="address-level2" required placeholder="Ex : Étauliers"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl" for="f-tel">Téléphone<span class="req" aria-hidden="true">*</span></label>
+        <input class="fi" type="tel" id="f-tel" autocomplete="tel" required placeholder="Ex&nbsp;: 05 57 12 34 56"/>
+      </div>
+      <div class="fg">
+        <label class="fl" for="f-tel2">Second téléphone<span class="opt">(optionnel)</span></label>
+        <input class="fi" type="tel" id="f-tel2" placeholder="Ex&nbsp;: 06 12 34 56 78"/>
+      </div>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-email">Email<span class="req" aria-hidden="true">*</span></label>
+      <input class="fi" type="email" id="f-email" autocomplete="email" required placeholder="Ex&nbsp;: contact@lea-martin-osteo.fr"/>
+      <p class="hint">Vos clients pourront vous écrire à cette adresse, et c'est là que je vous réponds.</p>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl" for="f-facebook">Page Facebook<span class="opt">(optionnel)</span></label>
+        <input class="fi" type="text" id="f-facebook" placeholder="Lien ou nom de la page"/>
+      </div>
+      <div class="fg">
+        <label class="fl" for="f-instagram">Compte Instagram<span class="opt">(optionnel)</span></label>
+        <input class="fi" type="text" id="f-instagram" placeholder="Lien ou @nom"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. HORAIRES -->
+  <section class="card" data-section aria-labelledby="t3">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">3</div>
+      <div><h2 class="card-title" id="t3">Horaires</h2><p class="card-sub">Écrivez-les comme vous les diriez : « 8h – 12h, 14h – 18h », « fermé », « sur rendez-vous »</p></div>
+    </div>
+    <div class="horaire-row"><label for="h-lundi">Lundi</label><input class="fi" type="text" id="h-lundi" data-jour="Lundi" placeholder="Ex&nbsp;: 8h – 12h, 14h – 18h"/></div>
+    <div class="horaire-row"><label for="h-mardi">Mardi</label><input class="fi" type="text" id="h-mardi" data-jour="Mardi"/></div>
+    <div class="horaire-row"><label for="h-mercredi">Mercredi</label><input class="fi" type="text" id="h-mercredi" data-jour="Mercredi"/></div>
+    <div class="horaire-row"><label for="h-jeudi">Jeudi</label><input class="fi" type="text" id="h-jeudi" data-jour="Jeudi"/></div>
+    <div class="horaire-row"><label for="h-vendredi">Vendredi</label><input class="fi" type="text" id="h-vendredi" data-jour="Vendredi"/></div>
+    <div class="horaire-row"><label for="h-samedi">Samedi</label><input class="fi" type="text" id="h-samedi" data-jour="Samedi" placeholder="Ex&nbsp;: 9h – 12h, ou fermé"/></div>
+    <div class="horaire-row"><label for="h-dimanche">Dimanche</label><input class="fi" type="text" id="h-dimanche" data-jour="Dimanche" placeholder="Ex&nbsp;: fermé"/></div>
+    <button type="button" class="btn-lien" id="copierLundi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Mêmes horaires du lundi au vendredi</button>
+  </section>
+
+  <!-- 4. PRESTATIONS -->
+  <section class="card" data-section aria-labelledby="t4">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">4</div>
+      <div><h2 class="card-title" id="t4">Vos prestations</h2><p class="card-sub">Cochez tout ce que vous proposez</p></div>
+    </div>
+    <fieldset class="fg">
+      <legend class="fl">Animaux suivis</legend>
+      <div class="check-grid" id="grid-a">
+        <label class="check-item"><input type="checkbox" id="p-a-1" value="Chiens"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Chiens</span></label>
+        <label class="check-item"><input type="checkbox" id="p-a-2" value="Chats"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Chats</span></label>
+        <label class="check-item"><input type="checkbox" id="p-a-3" value="Chevaux / Équidés"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Chevaux / Équidés</span></label>
+        <label class="check-item"><input type="checkbox" id="p-a-4" value="NAC (Nouveaux Animaux de Compagnie)"/><span class="check-box" aria-hidden="true"></span><span class="check-label">NAC</span></label>
+        <label class="check-item"><input type="checkbox" id="p-a-5" value="Animaux de rente / élevage"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Animaux de rente</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="fg">
+      <legend class="fl">Type d&#x27;intervention</legend>
+      <div class="check-grid" id="grid-b">
+        <label class="check-item"><input type="checkbox" id="p-b-1" value="Consultation au cabinet"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Consultation au cabinet</span></label>
+        <label class="check-item"><input type="checkbox" id="p-b-2" value="Déplacement à domicile"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Déplacement à domicile</span></label>
+        <label class="check-item"><input type="checkbox" id="p-b-3" value="Suivi sportif / performance"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Suivi sportif</span></label>
+        <label class="check-item"><input type="checkbox" id="p-b-4" value="Bilan post-traumatique"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Bilan post-traumatique</span></label>
+        <label class="check-item"><input type="checkbox" id="p-b-5" value="Suivi préventif"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Suivi préventif</span></label>
+      </div>
+    </fieldset>
+    <div class="fg">
+      <label class="fl" for="f-autre-presta">Autre chose que vous faites<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-autre-presta" placeholder="Ex : Ostéopathie équine haut niveau, préparation aux concours…"/>
+    </div>
+  </section>
+
+  <!-- 5. CLIENTÈLE ET ZONE -->
+  <section class="card" data-section aria-labelledby="t5">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">5</div>
+      <div><h2 class="card-title" id="t5">Votre clientèle et votre zone</h2><p class="card-sub">Pour que les bonnes personnes vous trouvent sur Google</p></div>
+    </div>
+    <fieldset class="fg">
+      <legend class="fl">Vous travaillez pour</legend>
+      <div class="check-grid" id="grid-clientele">
+        <label class="check-item"><input type="checkbox" id="cl-part" value="Particuliers"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Des particuliers</span></label>
+        <label class="check-item"><input type="checkbox" id="cl-pro" value="Professionnels"/><span class="check-box" aria-hidden="true"></span><span class="check-label">Des professionnels</span></label>
+      </div>
+    </fieldset>
+    <div class="fg">
+      <label class="fl" for="f-zone">Zone où vous travaillez<span class="req" aria-hidden="true">*</span></label>
+      <input class="fi" type="text" id="f-zone" required placeholder="Ex : Haute-Gironde, au cabinet et à domicile"/>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-villes">Les communes où vous travaillez le plus<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-villes" placeholder="Ex : Étauliers, Reignac, Saint-Ciers-sur-Gironde, Blaye"/>
+      <p class="hint">Séparées par des virgules. Je m'en sers pour que le site ressorte quand on cherche votre métier dans ces communes.</p>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-diff">Ce qui vous distingue des autres<span class="opt">(optionnel)</span></label>
+      <textarea class="ft" id="f-diff" placeholder="Ex : Diplômée d&#x27;une école agréée, approche douce, suivi après chaque séance"></textarea>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-certifs">Diplômes, labels, assurances à mettre en avant<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-certifs" placeholder="Ex : Inscrite au RNOA, assurance RC pro"/>
+    </div>
+  </section>
+
+  <!-- 6. AVIS CLIENTS -->
+  <section class="card" data-section aria-labelledby="t6">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">6</div>
+      <div><h2 class="card-title" id="t6">Vos avis clients</h2><p class="card-sub">Vos avis Google s'affichent tout seuls sur le site</p></div>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-google">Votre fiche Google<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-google" placeholder="Le nom exact de la fiche, ou son lien"/>
+      <p class="hint">Je m'en sers pour afficher vos avis sur le site et pour préparer le QR code qui invite vos clients à en laisser. Pas encore de fiche ? Je vous aide à la créer.</p>
+    </div>
+    <details class="plus" id="avisAilleurs">
+      <summary>Des avis reçus ailleurs (carnet, Facebook, email) ? Recopiez-en jusqu'à trois</summary>
+      <p class="hint">Uniquement de vrais avis, avec l'accord des clients concernés.</p>
+      <div class="avis">
+        <div class="form-row">
+          <div class="fg"><label class="fl" for="f-avis1-nom">Prénom et initiale du client</label><input class="fi" type="text" id="f-avis1-nom" placeholder="Ex&nbsp;: Marie D."/></div>
+          <div class="fg"><label class="fl" for="f-avis1-note">Note</label><select class="fs" id="f-avis1-note"><option value="">—</option><option>5 étoiles</option><option>4 étoiles</option><option>3 étoiles</option></select></div>
+        </div>
+        <div class="fg"><label class="fl" for="f-avis1-texte">Ce qu'il a écrit</label><textarea class="ft" id="f-avis1-texte"></textarea></div>
+      </div>
+      <div class="avis">
+        <div class="form-row">
+          <div class="fg"><label class="fl" for="f-avis2-nom">Prénom et initiale du client</label><input class="fi" type="text" id="f-avis2-nom" placeholder="Ex&nbsp;: Karim B."/></div>
+          <div class="fg"><label class="fl" for="f-avis2-note">Note</label><select class="fs" id="f-avis2-note"><option value="">—</option><option>5 étoiles</option><option>4 étoiles</option><option>3 étoiles</option></select></div>
+        </div>
+        <div class="fg"><label class="fl" for="f-avis2-texte">Ce qu'il a écrit</label><textarea class="ft" id="f-avis2-texte"></textarea></div>
+      </div>
+      <div class="avis">
+        <div class="form-row">
+          <div class="fg"><label class="fl" for="f-avis3-nom">Prénom et initiale du client</label><input class="fi" type="text" id="f-avis3-nom" placeholder="Ex&nbsp;: Sophie L."/></div>
+          <div class="fg"><label class="fl" for="f-avis3-note">Note</label><select class="fs" id="f-avis3-note"><option value="">—</option><option>5 étoiles</option><option>4 étoiles</option><option>3 étoiles</option></select></div>
+        </div>
+        <div class="fg"><label class="fl" for="f-avis3-texte">Ce qu'il a écrit</label><textarea class="ft" id="f-avis3-texte"></textarea></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 7. ALLURE DU SITE -->
+  <section class="card" data-section aria-labelledby="t7">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">7</div>
+      <div><h2 class="card-title" id="t7">L'allure du site</h2><p class="card-sub">La mise en page, les couleurs, votre logo et vos photos</p></div>
+    </div>
+    <fieldset class="fg">
+      <legend class="fl">Point de départ</legend>
+      <div class="choix-grid">
+        <label class="choix choix-large"><input type="radio" name="depart" id="depart-demo" value="La démo Cabinet Léa Martin"/><span class="check-box rond" aria-hidden="true"></span>
+          <span class="choix-demo"><img src="/img/demo-osteo-animal.jpg" alt="" width="800" height="500" loading="lazy"/><span class="choix-corps"><span class="choix-titre">La démo que vous avez vue</span><span class="choix-desc">Même mise en page que Cabinet Léa Martin, avec vos textes, vos photos et vos couleurs.</span></span></span></label>
+        <label class="choix"><input type="radio" name="depart" id="depart-confiance" value="Je vous fais confiance"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Je vous fais confiance</span><span class="choix-desc">Je vous propose une mise en page adaptée à votre métier.</span></span></label>
+        <label class="choix"><input type="radio" name="depart" id="depart-autre" value="Autre chose"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Autre chose</span><span class="choix-desc">Vous me décrivez ce que vous imaginez.</span></span></label>
+      </div>
+      <p class="hint"><a href="https://demo-osteo-animal.novaspot.fr/" target="_blank" rel="noopener">Revoir la démo Cabinet Léa Martin</a> (s'ouvre dans un nouvel onglet)</p>
+      <div class="sous-choix" id="depart-autre-wrap" hidden>
+        <label class="fl" for="f-depart-autre">Ce que vous imaginez</label>
+        <textarea class="ft" id="f-depart-autre" placeholder="Ex&nbsp;: très épuré avec beaucoup de blanc, ou un site que vous aimez bien (mettez son adresse)"></textarea>
+      </div>
+    </fieldset>
+    <fieldset class="fg">
+      <legend class="fl">Couleurs</legend>
+      <div class="choix-grid">
+        <label class="check-item"><input type="radio" name="couleurs" id="couleurs-logo" value="Celles de mon logo ou de mon enseigne"/><span class="check-box rond" aria-hidden="true"></span><span class="check-label">Celles de mon logo ou de mon enseigne</span></label>
+        <label class="check-item"><input type="radio" name="couleurs" id="couleurs-demo" value="Celles de la démo"/><span class="check-box rond" aria-hidden="true"></span><span class="check-label">Celles de la démo</span></label>
+        <label class="check-item"><input type="radio" name="couleurs" id="couleurs-choisies" value="Je les choisis"/><span class="check-box rond" aria-hidden="true"></span><span class="check-label">Je les choisis</span></label>
+        <label class="check-item"><input type="radio" name="couleurs" id="couleurs-libre" value="Je vous laisse proposer"/><span class="check-box rond" aria-hidden="true"></span><span class="check-label">Je vous laisse proposer</span></label>
+      </div>
+      <div class="couleurs-choix" id="couleurs-choix" hidden>
+        <div>
+          <label class="fl" for="c-principale">Couleur principale</label>
+          <div class="couleur-ligne"><input type="color" id="c-principale" value="#0f1f3d"/><span class="couleur-nom" id="c-principale-nom">Bleu nuit</span></div>
+          <div class="presets" data-cible="c-principale"></div>
+        </div>
+        <div>
+          <label class="fl" for="c-accent">Couleur des boutons<span class="opt">(accent)</span></label>
+          <div class="couleur-ligne"><input type="color" id="c-accent" value="#047857"/><span class="couleur-nom" id="c-accent-nom">Vert</span></div>
+          <div class="presets" data-cible="c-accent"></div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="fg">
+      <span class="fl" id="l-logo">Votre logo<span class="opt">(optionnel)</span></span>
+      <label class="upload-zone" data-type="logo">
+        <input type="file" id="logoInput" class="vh" accept="image/*" aria-labelledby="l-logo"/>
+        <span class="upload-placeholder"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5L7 20"/></svg><span class="upload-text">Choisir le logo</span></span>
+      </label>
+      <div class="upload-preview-list" id="logoPreview"></div>
+      <p class="hint">Pas de logo ? Je vous en fais un simple à partir du nom de l'entreprise.</p>
+    </div>
+    <div class="fg">
+      <span class="fl" id="l-photos">Vos photos<span class="opt">(optionnel)</span></span>
+      <p class="conseil"><b>Les photos font la moitié du site.</b> Ce qui marche le mieux : le cabinet, vous en consultation, des animaux suivis (avec l&#x27;accord des propriétaires). Des photos prises au téléphone, en plein jour et à l'horizontale, suffisent largement. Pas de photos trouvées sur Internet : elles appartiennent à quelqu'un d'autre.</p>
+      <label class="upload-zone" data-type="photos">
+        <input type="file" id="photosInput" class="vh" accept="image/*" multiple aria-labelledby="l-photos"/>
+        <span class="upload-placeholder"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.4"/></svg><span class="upload-text">Choisir des photos</span></span>
+      </label>
+      <div class="upload-preview-list" id="photosPreview"></div>
+      <p class="hint">Vous pouvez en choisir plusieurs d'un coup. Elles sont allégées avant l'envoi : inutile de les retoucher.</p>
+    </div>
+  </section>
+
+  <!-- 8. FORMULE ET ADRESSE -->
+  <section class="card" data-section aria-labelledby="t8">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">8</div>
+      <div><h2 class="card-title" id="t8">Formule et adresse du site</h2><p class="card-sub">Sans engagement, résiliable avec un mois de préavis</p></div>
+    </div>
+    <fieldset class="fg">
+      <legend class="fl">Formule</legend>
+      <div class="choix-grid plans">
+        <label class="choix"><input type="radio" name="plan" id="plan-essentiel" value="Essentiel — 39 €/mois + 250 € à la création"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Essentiel</span><span class="choix-prix">39&nbsp;€/mois + 250&nbsp;€ à la création</span><span class="choix-desc">Une page, à une adresse en .novaspot.fr</span></span></label>
+        <label class="choix"><span class="choix-pop">Le plus demandé</span><input type="radio" name="plan" id="plan-pro" value="Pro — 69 €/mois + 450 € à la création"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Pro</span><span class="choix-prix">69&nbsp;€/mois + 450&nbsp;€ à la création</span><span class="choix-desc">Jusqu'à 5 pages, votre propre nom de domaine, une galerie photos</span></span></label>
+        <label class="choix"><input type="radio" name="plan" id="plan-premium" value="Premium — 119 €/mois + 750 € à la création"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Premium</span><span class="choix-prix">119&nbsp;€/mois + 750&nbsp;€ à la création</span><span class="choix-desc">Jusqu'à 15 pages, votre fiche Google gérée, et c'est moi qui vous relance pour les mises à jour</span></span></label>
+        <label class="choix"><input type="radio" name="plan" id="plan-indecis" value="Pas encore décidé"/><span class="check-box rond" aria-hidden="true"></span><span class="choix-corps"><span class="choix-titre">Je ne sais pas encore</span><span class="choix-desc">On en parle au téléphone.</span></span></label>
+      </div>
+      <p class="hint">Les trois formules comprennent la gestion de vos avis clients et les mises à jour sous 48&nbsp;h. <a href="https://novaspot.fr/#tarifs" target="_blank" rel="noopener">Comparer les formules en détail</a></p>
+    </fieldset>
+    <div class="fg">
+      <label class="fl" for="f-subdomain">Adresse souhaitée pour le site<span class="opt">(optionnel)</span></label>
+      <div class="suffixe"><input class="fi" type="text" id="f-subdomain" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="lea-martin-osteo"/><span>.novaspot.fr</span></div>
+      <p class="hint">Avec Pro ou Premium, vous pouvez avoir votre propre nom, par exemple lea-martin-osteo.fr : vous l'achetez à votre nom (environ 10 à 15&nbsp;€ par an) et je le configure gratuitement.</p>
+    </div>
+    <div class="fg">
+      <label class="fl" for="f-domaine-existant">Vous avez déjà un nom de domaine ?<span class="opt">(optionnel)</span></label>
+      <input class="fi" type="text" id="f-domaine-existant" autocapitalize="none" spellcheck="false" placeholder="Ex&nbsp;: lea-martin-osteo.fr, laissez vide sinon"/>
+    </div>
+  </section>
+
+  <!-- 9. POUR FINIR -->
+  <section class="card" data-section aria-labelledby="t9">
+    <div class="card-header">
+      <div class="card-num" aria-hidden="true">9</div>
+      <div><h2 class="card-title" id="t9">Pour finir</h2><p class="card-sub">Rien d'obligatoire ici : ce qui manque, on le voit au téléphone</p></div>
+    </div>
+    <div class="form-row">
+      <div class="fg">
+        <label class="fl" for="f-siret">Numéro SIRET</label>
+        <input class="fi" type="text" id="f-siret" inputmode="numeric" placeholder="Ex&nbsp;: 123 456 789 00012"/>
+      </div>
+      <div class="fg">
+        <label class="fl" for="f-forme">Forme juridique</label>
+        <select class="fs" id="f-forme">
+          <option value="">Non renseignée</option>
+          <option>Micro-entreprise</option>
+          <option>EI</option>
           <option>EURL</option>
+          <option>SARL</option>
           <option>SAS / SASU</option>
           <option>Autre</option>
         </select>
       </div>
-      <div class="fg">
-        <label class="fl">Année de création<span class="opt">(optionnel)</span></label>
-        <input class="fi" type="text" id="f-annee" placeholder="Ex: 2006"/>
-      </div>
     </div>
     <div class="fg">
-      <label class="fl">Slogan ou phrase d'accroche<span class="opt">(optionnel — on peut vous en proposer un)</span></label>
-      <input class="fi" type="text" id="f-slogan" placeholder="Ex: Le bien-être animal, ma priorité"/>
-    </div>
-    <div class="fg">
-      <label class="fl">Nombre d'employés<span class="opt">(optionnel)</span></label>
-      <input class="fi" type="text" id="f-effectif" placeholder="Ex: 5 à 10 personnes"/>
-    </div>
-    <div class="fg">
-      <label class="fl">Diplôme / Certification<span class="opt">(optionnel — rassure vos clients)</span></label>
-      <input class="fi" type="text" id="f-diplome" placeholder="Ex: Diplômée du CFPAO, formation continue équine"/>
+      <label class="fl" for="f-responsable">Nom du responsable<span class="opt">(gérant, dirigeant)</span></label>
+      <input class="fi" type="text" id="f-responsable" autocomplete="name" placeholder="Ex&nbsp;: Jean Dupont"/>
+      <p class="hint">Le SIRET, la forme juridique et le responsable figurent dans les mentions légales, obligatoires sur tout site professionnel.</p>
     </div>
     <div class="form-row">
       <div class="fg">
-        <label class="fl">Numéro SIRET<span class="opt">(optionnel — nécessaire pour les mentions légales de votre site)</span></label>
-        <input class="fi" type="text" id="f-siret" placeholder="Ex: 123 456 789 00012"/>
+        <label class="fl" for="f-annee">Année de création</label>
+        <input class="fi" type="text" id="f-annee" inputmode="numeric" maxlength="4" placeholder="Ex : 2018"/>
       </div>
       <div class="fg">
-        <label class="fl">Nom du responsable légal<span class="opt">(optionnel — gérant, dirigeant)</span></label>
-        <input class="fi" type="text" id="f-responsable" placeholder="Ex: Jean Dupont"/>
+        <label class="fl" for="f-effectif">Taille de l'équipe</label>
+        <input class="fi" type="text" id="f-effectif" placeholder="Ex : Seule, sur rendez-vous"/>
       </div>
     </div>
-  </div>
+    <div class="fg">
+      <label class="fl" for="f-libre">Autre chose à me dire ?</label>
+      <textarea class="ft" id="f-libre" placeholder="Des envies, des choses à éviter, un site que vous aimez bien…"></textarea>
+    </div>
+  </section>
 
-  <!-- 2. COORDONNÉES -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">2</div>
-      <div><h2 class="card-title">Coordonnées</h2><div class="card-sub">Comment vos clients vous contactent</div></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Adresse complète<span class="req">*</span></label>
-      <input class="fi" type="text" id="f-adresse" placeholder="Ex: 5 rue des Vétérinaires" oninput="updateProgress()"/>
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Code postal<span class="req">*</span></label>
-        <input class="fi" type="text" id="f-cp" placeholder="35000" oninput="updateProgress()"/>
-      </div>
-      <div class="fg">
-        <label class="fl">Ville<span class="req">*</span></label>
-        <input class="fi" type="text" id="f-ville" placeholder="Rennes" oninput="updateProgress()"/>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Téléphone principal<span class="req">*</span></label>
-        <input class="fi" type="tel" id="f-tel" placeholder="02 99 XX XX XX" oninput="updateProgress()"/>
-      </div>
-      <div class="fg">
-        <label class="fl">Téléphone secondaire<span class="opt">(optionnel)</span></label>
-        <input class="fi" type="tel" id="f-tel2" placeholder="06 XX XX XX XX"/>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Email de contact<span class="req">*</span></label>
-      <input class="fi" type="email" id="f-email" placeholder="contact@monentreprise.fr" oninput="updateProgress()"/>
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Facebook<span class="opt">(optionnel — lien complet)</span></label>
-        <input class="fi" type="text" id="f-facebook" placeholder="https://facebook.com/..."/>
-      </div>
-      <div class="fg">
-        <label class="fl">Instagram<span class="opt">(optionnel — lien complet)</span></label>
-        <input class="fi" type="text" id="f-instagram" placeholder="https://instagram.com/..."/>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. HORAIRES -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">3</div>
-      <div><h2 class="card-title">Horaires d'ouverture</h2><div class="card-sub">Vos disponibilités pour vos clients</div></div>
-    </div>
-    <div id="horairesList">
-      <div class="horaire-row"><div class="horaire-day">Lundi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Lundi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Mardi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Mardi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Mercredi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Mercredi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Jeudi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Jeudi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Vendredi</div><input class="fi" type="text" placeholder="8h00 - 18h00" data-day="Vendredi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Samedi</div><input class="fi" type="text" placeholder="Fermé ou sur RDV" data-day="Samedi"/></div>
-      <div class="horaire-row"><div class="horaire-day">Dimanche</div><input class="fi" type="text" placeholder="Fermé" data-day="Dimanche"/></div>
-    </div>
-  </div>
-
-  <!-- 4. PRESTATIONS -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">4</div>
-      <div><h2 class="card-title">Vos prestations</h2><div class="card-sub">Cochez tout ce que vous proposez</div></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Animaux suivis</label>
-      <div class="check-grid" id="grid-metiers">
-        <label class="check-item"><input type="checkbox" value="Chiens"/><div class="check-box"></div><span class="check-label">Chiens</span></label>
-        <label class="check-item"><input type="checkbox" value="Chats"/><div class="check-box"></div><span class="check-label">Chats</span></label>
-        <label class="check-item"><input type="checkbox" value="Chevaux / Équidés"/><div class="check-box"></div><span class="check-label">Chevaux / Équidés</span></label>
-        <label class="check-item"><input type="checkbox" value="NAC (Nouveaux Animaux de Compagnie)"/><div class="check-box"></div><span class="check-label">NAC</span></label>
-        <label class="check-item"><input type="checkbox" value="Animaux de rente / élevage"/><div class="check-box"></div><span class="check-label">Animaux de rente</span></label>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Type d'intervention</label>
-      <div class="check-grid" id="grid-types">
-        <label class="check-item"><input type="checkbox" value="Consultation au cabinet"/><div class="check-box"></div><span class="check-label">Consultation au cabinet</span></label>
-        <label class="check-item"><input type="checkbox" value="Déplacement à domicile"/><div class="check-box"></div><span class="check-label">Déplacement à domicile</span></label>
-        <label class="check-item"><input type="checkbox" value="Suivi sportif / performance"/><div class="check-box"></div><span class="check-label">Suivi sportif</span></label>
-        <label class="check-item"><input type="checkbox" value="Bilan post-traumatique"/><div class="check-box"></div><span class="check-label">Bilan post-traumatique</span></label>
-        <label class="check-item"><input type="checkbox" value="Suivi préventif"/><div class="check-box"></div><span class="check-label">Suivi préventif</span></label>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Autre prestation non listée<span class="opt">(optionnel)</span></label>
-      <input class="fi" type="text" id="f-autre-presta" placeholder="Ex: Ostéopathie équine haut niveau, préparation aux concours..."/>
-    </div>
-  </div>
-
-  <!-- 5. CLIENTÈLE -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">5</div>
-      <div><h2 class="card-title">Votre clientèle</h2><div class="card-sub">Qui souhaitez-vous toucher ?</div></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Type de clientèle</label>
-      <div class="check-grid">
-        <label class="check-item"><input type="checkbox" value="Professionnels"/><div class="check-box"></div><span class="check-label">Professionnels</span></label>
-        <label class="check-item"><input type="checkbox" value="Particuliers"/><div class="check-box"></div><span class="check-label">Particuliers</span></label>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Zone d'intervention<span class="req">*</span></label>
-      <input class="fi" type="text" id="f-zone" placeholder="Ex: Rennes et périphérie (35)" oninput="updateProgress()"/>
-    </div>
-    <div class="fg">
-      <label class="fl">Villes précises couvertes<span class="opt">(optionnel — aide au référencement local)</span></label>
-      <input class="fi" type="text" id="f-villes" placeholder="Ex: Lyon, Villeurbanne, Vénissieux, Bron"/>
-      <div class="hint">Listez les villes où vous intervenez le plus, séparées par des virgules.</div>
-    </div>
-    <div class="fg">
-      <label class="fl">Ce qui vous différencie de la concurrence<span class="opt">(optionnel)</span></label>
-      <textarea class="ft" id="f-diff" placeholder="Ex: Diplômée d'un centre agréé, approche douce, suivi personnalisé..."></textarea>
-    </div>
-    <div class="fg">
-      <label class="fl">Certifications, labels, assurances<span class="opt">(optionnel — à mettre en avant sur le site)</span></label>
-      <input class="fi" type="text" id="f-certifs" placeholder="Ex: Assurance décennale, RGE, certifié bio..."/>
-    </div>
-  </div>
-
-  <!-- 6. AVIS CLIENTS -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">6</div>
-      <div><h2 class="card-title">Avis clients existants</h2><div class="card-sub">Si vous avez déjà de vrais avis à afficher (optionnel)</div></div>
-    </div>
-    <div class="hint" style="margin-bottom:1.25rem">Uniquement des avis réels que vous avez reçus — jamais de faux avis inventés.</div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Nom du client (avis 1)</label>
-        <input class="fi" type="text" id="f-avis1-nom" placeholder="Ex: Marie D."/>
-      </div>
-      <div class="fg">
-        <label class="fl">Note</label>
-        <select class="fs" id="f-avis1-note" aria-label="Note de l'avis client 1">
-          <option value="">—</option>
-          <option>5 étoiles</option>
-          <option>4 étoiles</option>
-          <option>3 étoiles</option>
-        </select>
-      </div>
-    </div>
-    <div class="fg">
-      <textarea class="ft" id="f-avis1-texte" placeholder="Texte de l'avis..."></textarea>
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Nom du client (avis 2)</label>
-        <input class="fi" type="text" id="f-avis2-nom" placeholder="Ex: Karim B."/>
-      </div>
-      <div class="fg">
-        <label class="fl">Note</label>
-        <select class="fs" id="f-avis2-note" aria-label="Note de l'avis client 2">
-          <option value="">—</option>
-          <option>5 étoiles</option>
-          <option>4 étoiles</option>
-          <option>3 étoiles</option>
-        </select>
-      </div>
-    </div>
-    <div class="fg">
-      <textarea class="ft" id="f-avis2-texte" placeholder="Texte de l'avis..."></textarea>
-    </div>
-    <div class="form-row">
-      <div class="fg">
-        <label class="fl">Nom du client (avis 3)</label>
-        <input class="fi" type="text" id="f-avis3-nom" placeholder="Ex: Sophie L."/>
-      </div>
-      <div class="fg">
-        <label class="fl">Note</label>
-        <select class="fs" id="f-avis3-note" aria-label="Note de l'avis client 3">
-          <option value="">—</option>
-          <option>5 étoiles</option>
-          <option>4 étoiles</option>
-          <option>3 étoiles</option>
-        </select>
-      </div>
-    </div>
-    <div class="fg">
-      <textarea class="ft" id="f-avis3-texte" placeholder="Texte de l'avis..."></textarea>
-    </div>
-  </div>
-
-  <!-- 7. STYLE VISUEL -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">7</div>
-      <div><h2 class="card-title">Style du site</h2><div class="card-sub">L'ambiance visuelle qui vous ressemble</div></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Style préféré</label>
-      <div class="style-grid" id="styleGrid">
-        <div class="style-card" data-style="Professionnel & Corporate"><div class="style-icon"><svg class="ic-style" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M9 16h6"/></svg></div><div class="style-name">Corporate</div><div class="style-desc">Sobre, sérieux, rassurant</div></div>
-        <div class="style-card" data-style="Moderne & Épuré"><div class="style-icon"><svg class="ic-style" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.2"/></svg></div><div class="style-name">Moderne</div><div class="style-desc">Épuré, minimaliste</div></div>
-        <div class="style-card" data-style="Chaleureux & Accessible"><div class="style-icon"><svg class="ic-style" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.6 12 20 12 20z"/></svg></div><div class="style-name">Chaleureux</div><div class="style-desc">Convivial, humain</div></div>
-        <div class="style-card" data-style="Dynamique & Coloré"><div class="style-icon"><svg class="ic-style" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div><div class="style-name">Dynamique</div><div class="style-desc">Vif, énergique</div></div>
-      </div>
-    </div>
-    <div class="fg">
-      <label class="fl">Couleur principale</label>
-      <div class="color-picker-row">
-        <input type="color" class="color-picker-input" id="colorPrimaryPicker" value="#0f2044" onchange="syncColorHex('primary')" oninput="syncColorHex('primary')"/ aria-label="Choisir la couleur principale">
-        <div class="color-picker-info">
-          <div class="color-picker-label">Choisissez votre couleur avec le curseur</div>
-          <input type="text" class="color-picker-hex" id="colorPrimaryHex" value="#0F2044" oninput="syncColorPicker('primary')" maxlength="7"/ aria-label="Code hexadécimal de la couleur principale">
-        </div>
-      </div>
-      <div class="color-presets" id="presetsPrimary"></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Couleur secondaire <span class="opt">(pour les accents, boutons...)</span></label>
-      <div class="color-picker-row">
-        <input type="color" class="color-picker-input" id="colorSecondaryPicker" value="#e8700a" onchange="syncColorHex('secondary')" oninput="syncColorHex('secondary')"/ aria-label="Choisir la couleur secondaire">
-        <div class="color-picker-info">
-          <div class="color-picker-label">Choisissez votre couleur avec le curseur</div>
-          <input type="text" class="color-picker-hex" id="colorSecondaryHex" value="#E8700A" oninput="syncColorPicker('secondary')" maxlength="7"/ aria-label="Code hexadécimal de la couleur secondaire">
-        </div>
-      </div>
-      <div class="color-presets" id="presetsSecondary"></div>
-      <div class="color-preview-bar">
-        <div class="color-preview-half" id="previewPrimary" style="background:#0f2044"></div>
-        <div class="color-preview-half" id="previewSecondary" style="background:#e8700a"></div>
-      </div>
-      <div class="hint">Aperçu de votre combinaison de couleurs ci-dessus</div>
-    </div>
-    <div class="fg">
-      <label class="fl">Autres suggestions de style<span class="opt">(optionnel)</span></label>
-      <textarea class="ft" id="f-style-libre" placeholder="Ex: J'aimerais quelque chose de très épuré avec beaucoup de blanc, un style qui rappelle tel site que j'aime, une police manuscrite pour le logo, une ambiance vintage..."></textarea>
-      <div class="hint">Décrivez librement toute idée de style, d'ambiance ou de référence qui n'est pas couverte ci-dessus.</div>
-    </div>
-    <div class="fg">
-      <label class="fl">Votre logo<span class="opt">(optionnel — image PNG/JPG)</span></label>
-      <div class="upload-zone" id="logoZone" onclick="document.getElementById('logoInput').click()">
-        <input type="file" id="logoInput" accept="image/*" style="display:none" onchange="handleUpload(this,'logo')"/ aria-label="Téléverser votre logo">
-        <div class="upload-placeholder" id="logoPlaceholder">
-          <span class="upload-icon"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5L7 20"/></svg></span>
-          <span class="upload-text">Cliquez pour déposer votre logo</span>
-        </div>
-        <div class="upload-preview-list" id="logoPreview"></div>
-      </div>
-      <div class="hint" id="logoHint">Pas de logo ? On peut vous en créer un simple à partir du nom de votre entreprise.</div>
-    </div>
-    <div class="fg">
-      <label class="fl">Photos de l'entreprise<span class="opt">(optionnel — équipe, chantiers, réalisations...)</span></label>
-      <div class="upload-zone" id="photosZone" onclick="document.getElementById('photosInput').click()">
-        <input type="file" id="photosInput" accept="image/*" multiple style="display:none" onchange="handleUpload(this,'photos')"/ aria-label="Téléverser vos photos">
-        <div class="upload-placeholder" id="photosPlaceholder">
-          <span class="upload-icon"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.4"/></svg></span>
-          <span class="upload-text">Cliquez pour déposer une ou plusieurs photos</span>
-        </div>
-        <div class="upload-preview-list" id="photosPreview"></div>
-      </div>
-      <div class="hint">Formats acceptés : JPG, PNG. 5 Mo max par image.</div>
-    </div>
-  </div>
-
-  <!-- 7. TECHNIQUE -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">8</div>
-      <div><h2 class="card-title">Informations techniques</h2><div class="card-sub">Pour la mise en ligne du site</div></div>
-    </div>
-    <div class="fg">
-      <label class="fl">Nom souhaité pour le sous-domaine<span class="opt">(sans espace, minuscules — ex: monentreprise)</span></label>
-      <input class="fi" type="text" id="f-subdomain" placeholder="monentreprise"/ aria-label="Sous-domaine souhaité">
-      <div class="hint">Votre site sera accessible sur : monentreprise.novaspot.fr (ou votre propre domaine si plan Pro/Premium)</div>
-    </div>
-    <div class="fg">
-      <label class="fl">Possédez-vous déjà un nom de domaine ?<span class="opt">(optionnel)</span></label>
-      <input class="fi" type="text" id="f-domaine-existant" placeholder="Ex: monentreprise.fr — laissez vide si non"/>
-    </div>
-    <div class="fg">
-      <label class="fl">Plan souhaité</label>
-      <select class="fs" id="f-plan" aria-label="Formule souhaitée">
-        <option value="">À définir ensemble</option>
-        <option>Essentiel — 39€/mois + 250€ de création</option>
-        <option>Pro — 69€/mois + 450€ de création</option>
-        <option>Premium — 119€/mois + 750€ de création</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- 8. COMPLÉMENT -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-num">9</div>
-      <div><h2 class="card-title">Informations complémentaires</h2><div class="card-sub">Tout ce qui peut nous aider</div></div>
-    </div>
-    <div class="fg">
-      <textarea class="ft" id="f-libre" placeholder="Avez-vous des demandes particulières, des choses à éviter, des exemples de sites que vous aimez ?" style="min-height:100px"></textarea>
-    </div>
-  </div>
-
-  <!-- SUBMIT -->
+  <!-- ENVOI -->
   <div class="submit-card">
-    <h2 class="submit-title" id="submitTitle">Prêt à envoyer votre demande ?</h2>
-    <p class="submit-sub" id="submitSub">Votre demande est envoyée directement à NovaSpot. Votre site sera créé sous 48h à compter de la réception de tous vos éléments — si quelque chose manque, on vous recontacte.</p>
+    <h2 class="submit-title">Prêt à envoyer ?</h2>
+    <p class="submit-sub">Je lis votre demande et je vous rappelle sous 48&nbsp;h pour caler les derniers détails. Votre site est en ligne 48&nbsp;h après réception du dossier complet.</p>
+    <p class="submit-err" id="submitErr" role="alert" hidden></p>
     <input type="text" id="f-hp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
-    <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">Envoyer ma demande →</button>
+    <button type="button" class="btn-submit" id="submitBtn">Envoyer ma demande</button>
     <p class="submit-rgpd">
-      Les informations transmises servent uniquement à concevoir votre site et à vous recontacter. Elles ne sont ni vendues, ni cédées.
-      Vous pouvez demander leur suppression à tout moment — voir la <a href="https://novaspot.fr/confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
-      Si vous nous transmettez des avis de vos clients, assurez-vous d'avoir leur accord pour les publier sur votre site.
+      Vos réponses servent uniquement à faire votre site et à vous recontacter. Elles ne sont ni vendues ni cédées, et vous pouvez demander leur suppression à tout moment : voir la <a href="https://novaspot.fr/confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+      Si vous me transmettez des avis de vos clients, assurez-vous d'avoir leur accord pour les publier.
     </p>
   </div>
-
-  <!-- RESULT -->
-  <div class="result-wrap" id="resultWrap">
-    <div class="result-header" id="resultHeader">✓ Demande envoyée avec succès</div>
-    <p style="font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem" id="resultMsg">Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 48&nbsp;h pour finaliser votre site.</p>
-    <div class="result-box" id="resultBox"></div>
-    <button class="btn-copy" id="copyBtn" onclick="copyResult()"><svg class="ic-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copier le résumé (sauvegarde)</button>
-  </div>
-
 </div>
 
+<!-- RÉSULTAT -->
+<div class="result-wrap" id="resultWrap" hidden>
+  <h2 class="result-header" id="resultHeader" tabindex="-1"></h2>
+  <p class="result-msg" id="resultMsg"></p>
+  <details class="result-details" id="resultDetails">
+    <summary>Voir le résumé de vos réponses</summary>
+    <div class="result-box" id="resultBox"></div>
+    <button type="button" class="btn-copy" id="copyBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copier le résumé</button>
+  </details>
+</div>
+</main>
+
 <script>
-// Checkbox toggle
-document.querySelectorAll('.check-item').forEach(item=>{
-  item.addEventListener('click',()=>{
-    const cb=item.querySelector('input');
-    cb.checked=!cb.checked;
-    item.classList.toggle('checked',cb.checked);
-    updateProgress();
+'use strict';
+const SECTEUR = "Ostéopathie Animale";
+const GROUPES = [["a", "Animaux suivis"], ["b", "Type d'intervention"]];
+const EXTRAS = [["f-diplome", "Diplôme / formation"]];
+const CLE_BROUILLON = 'novaspot-formulaire-formulaire-osteopathie-animale';
+const OBLIGATOIRES = ['f-nom', 'f-adresse', 'f-cp', 'f-ville', 'f-tel', 'f-email', 'f-zone'];
+const PRESETS = [['#0f1f3d', 'Bleu nuit'], ['#1e3a8a', 'Bleu roi'], ['#0e7490', 'Bleu canard'], ['#047857', 'Vert'], ['#4d7c0f', 'Vert olive'], ['#b91c1c', 'Rouge'],
+  ['#c2410c', 'Orange brûlé'], ['#b45309', 'Ocre'], ['#7c2d92', 'Violet'], ['#be185d', 'Framboise'], ['#44403c', 'Anthracite'], ['#a8a29e', 'Grège']];
+
+const $ = id => document.getElementById(id);
+const val = id => ($(id) ? $(id).value.trim() : '');
+const zoneForm = $('formulaire');
+
+// ── Contrôle des champs obligatoires ──
+function erreurChamp(id) {
+  const v = val(id);
+  if (!v) return 'Obligatoire';
+  if (id === 'f-email' && !/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v)) return 'Adresse email incomplète';
+  if (id === 'f-tel' && v.replace(/\D/g, '').length < 10) return 'Numéro incomplet : il faut 10 chiffres';
+  if (id === 'f-cp' && !/^\d{5}$/.test(v.replace(/\s/g, ''))) return 'Le code postal a 5 chiffres';
+  return '';
+}
+function marquerErreur(id, message) {
+  const fg = $(id).closest('.fg');
+  fg.classList.add('err');
+  let p = fg.querySelector('.fg-err');
+  if (!p) { p = document.createElement('p'); p.className = 'fg-err'; p.id = id + '-err'; fg.appendChild(p); }
+  p.textContent = message;
+  $(id).setAttribute('aria-invalid', 'true');
+  $(id).setAttribute('aria-describedby', p.id);
+}
+function effacerErreur(fg) {
+  fg.classList.remove('err');
+  fg.querySelector('.fg-err')?.remove();
+  fg.querySelectorAll('[aria-invalid]').forEach(el => { el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby'); });
+}
+function allerA(id) {
+  const el = $(id);
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.focus({ preventScroll: true });
+}
+
+// ── Progression : sections réellement remplies + obligatoires manquants ──
+function sectionRemplie(carte) {
+  if (carte.querySelector('.upload-item:not(.echec)')) return true;
+  return [...carte.querySelectorAll('input, select, textarea')].some(el => {
+    if (el.type === 'file' || el.type === 'color') return false;
+    if (el.type === 'checkbox' || el.type === 'radio') return el.checked;
+    return el.value.trim() !== '';
   });
+}
+function majProgression() {
+  const cartes = [...document.querySelectorAll('.card[data-section]')];
+  let n = 0;
+  cartes.forEach(c => { const r = sectionRemplie(c); c.classList.toggle('rempli', r); if (r) n++; });
+  $('progressFill').style.width = Math.round(n / cartes.length * 100) + '%';
+  $('progressSections').textContent = `Sections remplies : ${n} sur ${cartes.length}`;
+  const manquants = OBLIGATOIRES.filter(id => !val(id));
+  $('progressManque').hidden = !manquants.length;
+  $('progressOk').hidden = !!manquants.length;
+  if (manquants.length) $('progressManque').textContent = manquants.length === 1 ? '1 champ obligatoire à remplir' : `${manquants.length} champs obligatoires à remplir`;
+}
+$('progressManque').addEventListener('click', () => { const id = OBLIGATOIRES.find(i => !val(i)); if (id) allerA(id); });
+
+// ── Choix qui font apparaître un champ ──
+function majAffichages() {
+  $('depart-autre-wrap').hidden = !$('depart-autre').checked;
+  $('couleurs-choix').hidden = !$('couleurs-choisies').checked;
+  ['c-principale', 'c-accent'].forEach(majNomCouleur);
+}
+
+// ── Horaires ──
+$('copierLundi').addEventListener('click', () => {
+  const v = val('h-lundi');
+  if (!v) { $('h-lundi').focus(); return; }
+  ['h-mardi', 'h-mercredi', 'h-jeudi', 'h-vendredi'].forEach(id => { $(id).value = v; });
+  majProgression(); planifierEnregistrement();
 });
 
-// Style card selection
-document.querySelectorAll('.style-card').forEach(card=>{
-  card.addEventListener('click',()=>{
-    document.querySelectorAll('.style-card').forEach(c=>c.classList.remove('selected'));
-    card.classList.add('selected');
-    updateProgress();
-  });
+// ── Adresse du site : minuscules, sans accents ni espaces ──
+$('f-subdomain').addEventListener('input', e => {
+  const el = e.target;
+  const propre = el.value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9-]+/g, '-').replace(/^-+/, '').replace(/-{2,}/g, '-').slice(0, 40);
+  if (propre !== el.value) el.value = propre;
 });
 
-// ── SÉLECTEUR DE COULEUR (principale + secondaire) ──
-const colorPresets = ['#0f2044','#e8700a','#15803d','#b91c1c','#1e3a8a','#7c2d92','#0891b2','#525252','#f59e0b','#ec4899'];
-
-function buildPresets(type){
-  const container = document.getElementById('presets'+(type==='primary'?'Primary':'Secondary'));
-  colorPresets.forEach(hex=>{
-    const sw = document.createElement('div');
-    sw.className = 'preset-swatch';
-    sw.style.background = hex;
-    sw.title = hex;
-    sw.onclick = () => {
-      document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker').value = hex;
-      document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex').value = hex.toUpperCase();
-      updateColorPreview();
-    };
-    container.appendChild(sw);
+// ── Couleurs ──
+function nomCouleur(hex) { const p = PRESETS.find(([h]) => h === hex.toLowerCase()); return p ? p[1] : 'Couleur personnalisée'; }
+function majNomCouleur(id) {
+  const v = $(id).value.toLowerCase();
+  $(id + '-nom').textContent = nomCouleur(v);
+  document.querySelectorAll(`.presets[data-cible="${id}"] .preset`).forEach(b => b.setAttribute('aria-pressed', b.dataset.hex === v ? 'true' : 'false'));
+}
+document.querySelectorAll('.presets').forEach(boite => {
+  const id = boite.dataset.cible;
+  PRESETS.forEach(([hex, nom]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'preset'; b.style.background = hex; b.dataset.hex = hex; b.title = nom;
+    b.setAttribute('aria-label', nom);
+    b.addEventListener('click', () => { $(id).value = hex; majNomCouleur(id); planifierEnregistrement(); });
+    boite.appendChild(b);
   });
-}
-buildPresets('primary');
-buildPresets('secondary');
+  $(id).addEventListener('input', () => majNomCouleur(id));
+});
 
-function syncColorHex(type){
-  const picker = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker');
-  const hexInput = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex');
-  hexInput.value = picker.value.toUpperCase();
-  updateColorPreview();
-}
-
-function syncColorPicker(type){
-  const hexInput = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Hex');
-  const picker = document.getElementById('color'+(type==='primary'?'Primary':'Secondary')+'Picker');
-  let val = hexInput.value.trim();
-  if (!val.startsWith('#')) val = '#'+val;
-  if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
-    picker.value = val;
-    updateColorPreview();
-  }
-}
-
-function updateColorPreview(){
-  const p = document.getElementById('colorPrimaryPicker').value;
-  const s = document.getElementById('colorSecondaryPicker').value;
-  document.getElementById('previewPrimary').style.background = p;
-  document.getElementById('previewSecondary').style.background = s;
-}
-
-// Progress bar
-function updateProgress(){
-  const required=['f-nom','f-adresse','f-cp','f-ville','f-tel','f-email','f-zone'];
-  let filled=0;
-  required.forEach(id=>{
-    if(document.getElementById(id).value.trim())filled++;
-  });
-  const pct=Math.round((filled/required.length)*100);
-  document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('progressText').textContent=pct+'% complété';
-}
-
-// ── CONFIGURATION UPLOAD IMAGES (imgbb) ──
+// ── Photos et logo (hébergés sur imgbb) ──
 const IMGBB_API_KEY = 'b354862c93c4379e65fe593141464061';
+const images = { logo: [], photos: [] };
+let envoisEnCours = 0;
 
-const uploadedImages = { logo: [], photos: [] };
+function ajouterApercu(type, src, nom, url) {
+  const id = 'img-' + Math.random().toString(36).slice(2, 9);
+  const item = document.createElement('div');
+  item.className = 'upload-item' + (url ? '' : ' uploading');
+  item.id = id;
+  const img = document.createElement('img');
+  img.src = src; img.alt = '';
+  item.appendChild(img);
+  if (!url) { const etat = document.createElement('span'); etat.className = 'upload-etat'; etat.textContent = 'Envoi…'; item.appendChild(etat); }
+  const suppr = document.createElement('button');
+  suppr.type = 'button'; suppr.className = 'upload-remove'; suppr.textContent = '×';
+  suppr.setAttribute('aria-label', `Retirer ${nom}`);
+  suppr.addEventListener('click', () => retirer(type, id));
+  item.appendChild(suppr);
+  $(type + 'Preview').appendChild(item);
+  const entree = { id, name: nom, url: url || '' };
+  images[type].push(entree);
+  return { item, entree };
+}
+function retirer(type, id) {
+  const i = images[type].findIndex(x => x.id === id);
+  if (i > -1) images[type].splice(i, 1);
+  $(id)?.remove();
+  majProgression(); planifierEnregistrement();
+}
+// Les photos sont réduites à 2400 px et réencodées : plus légères, et sans les données GPS du téléphone.
+async function reduire(fichier) {
+  const url = URL.createObjectURL(fichier);
+  try {
+    const img = await new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = url; });
+    const r = Math.min(1, 2400 / Math.max(img.naturalWidth, img.naturalHeight));
+    const c = document.createElement('canvas');
+    c.width = Math.round(img.naturalWidth * r); c.height = Math.round(img.naturalHeight * r);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    const blob = await new Promise(ok => c.toBlob(ok, 'image/jpeg', 0.85));
+    return blob ? new File([blob], fichier.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' }) : fichier;
+  } catch { return fichier; } finally { URL.revokeObjectURL(url); }
+}
+async function envoyerUnFichier(type, fichier) {
+  const { item, entree } = ajouterApercu(type, URL.createObjectURL(fichier), fichier.name);
+  envoisEnCours++;
+  try {
+    const f = type === 'photos' ? await reduire(fichier) : fichier;
+    if (f.size > 32 * 1024 * 1024) throw new Error('trop lourd');
+    const fd = new FormData();
+    fd.append('image', f, f.name || fichier.name);
+    const rep = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: 'POST', body: fd });
+    const data = await rep.json();
+    if (!data.success) throw new Error('refusé');
+    entree.url = data.data.url;
+    item.classList.remove('uploading');
+    item.querySelector('.upload-etat')?.remove();
+  } catch {
+    entree.echec = true;
+    item.classList.remove('uploading'); item.classList.add('echec');
+    const etat = item.querySelector('.upload-etat');
+    if (etat) etat.textContent = 'Échec, retirez et réessayez';
+  } finally {
+    envoisEnCours--;
+    majProgression(); planifierEnregistrement();
+  }
+}
+function envoyerFichiers(fichiers, type) {
+  fichiers = fichiers.filter(f => f.type.startsWith('image/') || /\.(heic|heif)$/i.test(f.name));
+  if (!fichiers.length) return;
+  if (type === 'logo') { images.logo.slice().forEach(i => retirer('logo', i.id)); fichiers = fichiers.slice(0, 1); }
+  fichiers.forEach(f => envoyerUnFichier(type, f));
+}
+function attendreEnvois() {
+  return new Promise(ok => { const t0 = Date.now(); const tic = () => (!envoisEnCours || Date.now() - t0 > 90000) ? ok() : setTimeout(tic, 300); tic(); });
+}
+['logo', 'photos'].forEach(type => {
+  $(type + 'Input').addEventListener('change', e => { envoyerFichiers([...e.target.files], type); e.target.value = ''; });
+});
+document.querySelectorAll('.upload-zone').forEach(z => {
+  ['dragenter', 'dragover'].forEach(ev => z.addEventListener(ev, e => { e.preventDefault(); z.classList.add('dragover'); }));
+  ['dragleave', 'drop'].forEach(ev => z.addEventListener(ev, e => { e.preventDefault(); z.classList.remove('dragover'); }));
+  z.addEventListener('drop', e => envoyerFichiers([...e.dataTransfer.files], z.dataset.type));
+});
 
-function handleUpload(input, type){
-  const files = [...input.files];
-  if (!files.length) return;
-
-  const previewList = document.getElementById(type+'Preview');
-  const placeholder = document.getElementById(type+'Placeholder');
-
-  files.forEach(file => {
-    if (file.size > 5 * 1024 * 1024) {
-      alert(`"${file.name}" dépasse 5 Mo et ne sera pas envoyé.`);
-      return;
-    }
-
-    const itemId = 'img_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
-    const item = document.createElement('div');
-    item.className = 'upload-item uploading';
-    item.id = itemId;
-
-    const reader = new FileReader();
-    reader.onload = e => {
-      item.innerHTML = `<img src="${e.target.result}"/><div class="upload-spinner">…</div><button class="upload-remove" onclick="event.stopPropagation();removeUpload('${itemId}','${type}')">×</button>`;
-    };
-    reader.readAsDataURL(file);
-    previewList.appendChild(item);
-    placeholder.style.display = 'none';
-
-    const formData = new FormData();
-    formData.append('image', file);
-
-    fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
-      method: 'POST',
-      body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        const url = data.data.url;
-        uploadedImages[type].push({ name: file.name, url });
-        const spinner = item.querySelector('.upload-spinner');
-        if (spinner) spinner.remove();
-        item.classList.remove('uploading');
-      } else {
-        throw new Error('Échec upload');
-      }
-    })
-    .catch(() => {
-      item.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#ef4444;text-align:center;padding:.3rem">Erreur</div><button class="upload-remove" onclick="event.stopPropagation();removeUpload('${itemId}','${type}')">×</button>`;
-    });
+// ── Brouillon gardé sur l'appareil (jamais envoyé ailleurs) ──
+let envoye = false, minuterie;
+function enregistrer() {
+  if (envoye) return;
+  const champs = {};
+  zoneForm.querySelectorAll('input, select, textarea').forEach(el => {
+    if (!el.id || el.type === 'file' || el.id === 'f-hp') return;
+    champs[el.id] = (el.type === 'checkbox' || el.type === 'radio') ? el.checked : el.value;
   });
+  const garder = t => images[t].filter(i => i.url).map(({ name, url }) => ({ name, url }));
+  try { localStorage.setItem(CLE_BROUILLON, JSON.stringify({ v: 1, date: Date.now(), champs, images: { logo: garder('logo'), photos: garder('photos') } })); } catch {}
+}
+function planifierEnregistrement() { clearTimeout(minuterie); minuterie = setTimeout(enregistrer, 400); }
+function restaurer() {
+  let b = null;
+  try { b = JSON.parse(localStorage.getItem(CLE_BROUILLON) || 'null'); } catch {}
+  if (!b || !b.champs) return;
+  let quelqueChose = false;
+  for (const [id, v] of Object.entries(b.champs)) {
+    const el = $(id);
+    if (!el || el.type === 'file') continue;
+    if (el.type === 'checkbox' || el.type === 'radio') { el.checked = !!v; if (v) quelqueChose = true; }
+    else { el.value = v; if (v && el.type !== 'color') quelqueChose = true; }
+  }
+  ['logo', 'photos'].forEach(t => (b.images?.[t] || []).forEach(i => { ajouterApercu(t, i.url, i.name, i.url); quelqueChose = true; }));
+  if (!quelqueChose) return;
+  const d = new Date(b.date);
+  $('brouillonDate').textContent = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }) + ' à ' + d.getHours() + ' h ' + String(d.getMinutes()).padStart(2, '0');
+  $('brouillon').hidden = false;
+}
+$('brouillonEffacer').addEventListener('click', () => {
+  if (!confirm('Effacer toutes vos réponses et recommencer ?')) return;
+  envoye = true;
+  try { localStorage.removeItem(CLE_BROUILLON); } catch {}
+  location.reload();
+});
+zoneForm.addEventListener('input', e => {
+  const fg = e.target.closest('.fg.err');
+  if (fg && !erreurChamp(e.target.id)) effacerErreur(fg);
+  majProgression(); planifierEnregistrement();
+});
+zoneForm.addEventListener('change', () => { majAffichages(); majProgression(); planifierEnregistrement(); });
+addEventListener('pagehide', enregistrer);
 
-  input.value = '';
+// ── Résumé envoyé par email (seules les réponses données y figurent) ──
+function construireResume() {
+  const L = (libelle, v) => v ? `${libelle} : ${v}\n` : '';
+  const coches = sel => [...document.querySelectorAll(sel + ' input:checked')].map(i => i.value);
+  const puces = arr => arr.map(v => `  • ${v}\n`).join('');
+  const radio = nom => document.querySelector(`input[name="${nom}"]:checked`)?.value || '';
+  const bloc = (titre, corps) => `── ${titre} ──\n${corps || '(rien de renseigné)\n'}\n`;
+
+  const entreprise = L('Nom', val('f-nom')) + L('Slogan', val('f-slogan')) + EXTRAS.map(([id, lib]) => L(lib, val(id))).join('');
+  const coordonnees = L('Adresse', val('f-adresse')) + L('Code postal / ville', `${val('f-cp')} ${val('f-ville')}`.trim())
+    + ($('f-ville-seule').checked ? 'Sur le site : afficher la ville seulement (adresse complète dans les mentions légales)\n' : '')
+    + L('Téléphone', val('f-tel')) + L('Second téléphone', val('f-tel2')) + L('Email', val('f-email'))
+    + L('Facebook', val('f-facebook')) + L('Instagram', val('f-instagram'));
+  const horaires = [...document.querySelectorAll('[data-jour]')].filter(i => i.value.trim()).map(i => `${i.dataset.jour} : ${i.value.trim()}\n`).join('');
+  const prestations = GROUPES.map(([id, titre]) => { const c = coches('#grid-' + id); return c.length ? `${titre} :\n${puces(c)}` : ''; }).join('')
+    + L('Autre', val('f-autre-presta'));
+  const clientele = L('Travaille pour', coches('#grid-clientele').join(', ')) + L('Zone', val('f-zone')) + L('Communes', val('f-villes'))
+    + L('Ce qui le distingue', val('f-diff')) + L('Diplômes, labels, assurances', val('f-certifs'));
+  const avis = L('Fiche Google', val('f-google')) + [1, 2, 3].map(n => {
+    const nom = val(`f-avis${n}-nom`), note = val(`f-avis${n}-note`), texte = val(`f-avis${n}-texte`);
+    return (nom || texte) ? `Avis ${n} : ${nom || 'client'}${note ? ' (' + note + ')' : ''}\n  « ${texte || '…'} »\n` : '';
+  }).join('');
+  const couleurs = radio('couleurs');
+  const allure = L('Point de départ', radio('depart')) + L('Ce qu\'il imagine', $('depart-autre').checked ? val('f-depart-autre') : '')
+    + L('Couleurs', couleurs)
+    + (couleurs === 'Je les choisis' ? `  Principale : ${$('c-principale').value.toUpperCase()} (${nomCouleur($('c-principale').value)})\n  Boutons : ${$('c-accent').value.toUpperCase()} (${nomCouleur($('c-accent').value)})\n` : '')
+    + L('Logo', images.logo.filter(i => i.url).map(i => i.url).join(' '))
+    + (images.photos.some(i => i.url) ? `Photos (${images.photos.filter(i => i.url).length}) :\n` + images.photos.filter(i => i.url).map((i, k) => `  ${k + 1}. ${i.url}\n`).join('') : '');
+  const sd = val('f-subdomain').replace(/-+$/, '');
+  const formule = L('Formule', radio('plan')) + L('Adresse souhaitée', sd ? sd + '.novaspot.fr' : '') + L('Domaine existant', val('f-domaine-existant'));
+  const fin = L('SIRET', val('f-siret')) + L('Forme juridique', val('f-forme')) + L('Responsable', val('f-responsable'))
+    + L('Année de création', val('f-annee')) + L('Équipe', val('f-effectif')) + (val('f-libre') ? `Autre chose :\n${val('f-libre')}\n` : '');
+
+  return `═══════════════════════════════════
+DEMANDE DE SITE — ${SECTEUR}
+═══════════════════════════════════
+
+` + bloc('1. ENTREPRISE', entreprise) + bloc('2. COORDONNÉES', coordonnees) + bloc('3. HORAIRES', horaires)
+    + bloc('4. PRESTATIONS', prestations) + bloc('5. CLIENTÈLE ET ZONE', clientele) + bloc('6. AVIS', avis)
+    + bloc('7. ALLURE DU SITE', allure) + bloc('8. FORMULE ET ADRESSE', formule) + bloc('9. POUR FINIR', fin)
+    + `═══════════════════════════════════
+Envoyé le ${new Date().toLocaleDateString('fr-FR')} depuis ${location.host}`;
 }
 
-function removeUpload(itemId, type){
-  const el = document.getElementById(itemId);
-  if (el) {
-    const idx = [...el.parentElement.children].indexOf(el);
-    uploadedImages[type].splice(idx, 1);
-    el.remove();
-  }
-  const previewList = document.getElementById(type+'Preview');
-  if (!previewList.children.length) {
-    document.getElementById(type+'Placeholder').style.display = 'flex';
-  }
-}
-
-// ── CONFIGURATION EMAILJS ──
+// ── Envoi (EmailJS) ──
 const EMAILJS_PUBLIC_KEY = 'IENEk0fXfBBkXFNwj';
 const EMAILJS_SERVICE_ID = 'service_ovh';
 const EMAILJS_TEMPLATE_ID = 'template_9fnztax';
-const NOVASPOT_EMAIL = 'contact@novaspot.fr'; // email qui reçoit les demandes
+const NOVASPOT_EMAIL = 'contact@novaspot.fr';
+const ICONE_OK = '<svg class="ic" style="width:1.4rem;height:1.4rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>';
+const chargeA = Date.now();
+let emailjsPret = false;
 
-if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'VOTRE_PUBLIC_KEY') {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+function afficherResultat(ok) {
+  const h = $('resultHeader');
+  h.classList.toggle('echec', !ok);
+  if (ok) {
+    h.innerHTML = ICONE_OK + 'C\'est envoyé';
+    $('resultMsg').textContent = `Merci. J'ai bien reçu la demande pour ${val('f-nom')}. Je vous rappelle sous 48 h au ${val('f-tel')} pour caler les derniers détails.`;
+    $('resultDetails').open = false;
+    zoneForm.hidden = true;
+    $('resultWrap').hidden = false;
+    scrollTo({ top: 0 });
+  } else {
+    h.textContent = 'L\'envoi n\'est pas passé';
+    $('resultMsg').innerHTML = 'Vos réponses sont toujours là, rien n\'est perdu. Réessayez dans un instant. Si ça bloque encore, copiez le résumé ci-dessous et envoyez-le à <a href="mailto:contact@novaspot.fr">contact@novaspot.fr</a>, ou appelez-moi au <a href="tel:+33646574982">06 46 57 49 82</a>.';
+    $('resultDetails').open = true;
+    $('resultWrap').hidden = false;
+    $('resultWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  h.focus({ preventScroll: true });
 }
 
-const formLoadedAt = Date.now();
-function handleSubmit(){
-  if(document.getElementById('f-hp').value){return;}
-  if(Date.now()-formLoadedAt < 3000){return;}
-  const nom=document.getElementById('f-nom').value.trim();
-  const adresse=document.getElementById('f-adresse').value.trim();
-  const cp=document.getElementById('f-cp').value.trim();
-  const ville=document.getElementById('f-ville').value.trim();
-  const tel=document.getElementById('f-tel').value.trim();
-  const zone=document.getElementById('f-zone').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-
-  if(!nom||!adresse||!cp||!ville||!tel||!email||!zone){
-    alert('Merci de remplir au minimum : nom de l\'entreprise, adresse complète, téléphone, email et zone d\'intervention.');
+async function envoyer() {
+  if (val('f-hp')) return;
+  if (Date.now() - chargeA < 3000) return;
+  document.querySelectorAll('.fg.err').forEach(effacerErreur);
+  const fautes = OBLIGATOIRES.map(id => [id, erreurChamp(id)]).filter(([, m]) => m);
+  if (fautes.length) {
+    fautes.forEach(([id, m]) => marquerErreur(id, m));
+    $('submitErr').textContent = fautes.length === 1 ? 'Il manque une information, je vous y amène.' : `Il manque ${fautes.length} informations, je vous amène à la première.`;
+    $('submitErr').hidden = false;
+    setTimeout(() => allerA(fautes[0][0]), 600);
     return;
   }
-
-  const forme=document.getElementById('f-forme').value||'—';
-  const annee=document.getElementById('f-annee').value||'—';
-  const slogan=document.getElementById('f-slogan').value||'—';
-  const effectif=document.getElementById('f-effectif').value||'—';
-  const diplome=document.getElementById('f-diplome').value||'—';
-  const tel2=document.getElementById('f-tel2').value||'—';
-
-  const horaires=[...document.querySelectorAll('[data-day]')].map(inp=>`${inp.dataset.day} : ${inp.value||'Non renseigné'}`).join('\n');
-
-  const metiers=[...document.querySelectorAll('#grid-metiers input:checked')].map(i=>i.value);
-  const types=[...document.querySelectorAll('#grid-types input:checked')].map(i=>i.value);
-  const autrePresta=document.getElementById('f-autre-presta').value;
-
-  const clientele=[...document.querySelectorAll('.card:nth-of-type(5) input:checked')].map(i=>i.value).join(', ')||'—';
-  const diff=document.getElementById('f-diff').value||'—';
-
-  const styleCard=document.querySelector('.style-card.selected');
-  const style=styleCard?styleCard.dataset.style:'Non précisé';
-  const couleurPrincipale=document.getElementById('colorPrimaryHex').value;
-  const couleurSecondaire=document.getElementById('colorSecondaryHex').value;
-  const styleLibre=document.getElementById('f-style-libre').value||'—';
-  const logoLinks = uploadedImages.logo.map(i=>i.url).join('\n') || 'Aucun logo envoyé — à créer à partir du nom';
-  const photosLinks = uploadedImages.photos.map((i,idx)=>`  ${idx+1}. ${i.url}`).join('\n') || '  Aucune photo envoyée';
-
-  const subdomain=document.getElementById('f-subdomain').value||'(à définir)';
-  const plan=document.getElementById('f-plan').value||'À définir ensemble';
-
-  const libre=document.getElementById('f-libre').value||'—';
-
-  const resume=`═══════════════════════════════════
-BRIEF CLIENT — NOVASPOT
-Secteur : Ostéopathie Animale
-═══════════════════════════════════
-
-── 1. ENTREPRISE ──
-Nom : ${nom}
-Forme juridique : ${forme}
-Année de création : ${annee}
-Slogan : ${slogan}
-Effectif : ${effectif}
-Diplôme / Certification : ${diplome}
-
-── 2. COORDONNÉES ──
-Adresse : ${adresse}
-Code postal / Ville : ${cp} ${ville}
-Téléphone principal : ${tel}
-Téléphone secondaire : ${tel2}
-Email : ${email}
-
-── 3. HORAIRES ──
-${horaires}
-
-── 4. PRESTATIONS ──
-Animaux suivis :
-${metiers.length?metiers.map(p=>'  • '+p).join('\n'):'  (aucun sélectionné)'}
-
-Type d'intervention :
-${types.length?types.map(p=>'  • '+p).join('\n'):'  (aucun sélectionné)'}
-
-Autre prestation : ${autrePresta||'—'}
-
-── 5. CLIENTÈLE ──
-Type de clientèle : ${clientele}
-Zone d'intervention : ${zone}
-Différenciation : ${diff}
-
-── 6. STYLE VISUEL ──
-Style préféré : ${style}
-Couleur principale : ${couleurPrincipale}
-Couleur secondaire : ${couleurSecondaire}
-Suggestions libres de style : ${styleLibre}
-Logo : ${logoLinks}
-Photos (${uploadedImages.photos.length}) :
-${photosLinks}
-
-── 7. TECHNIQUE ──
-Sous-domaine souhaité : ${subdomain}.novaspot.fr
-Plan souhaité : ${plan}
-
-── 8. COMPLÉMENT ──
-${libre}
-
-═══════════════════════════════════
-Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpot
-═══════════════════════════════════`;
-
-  document.getElementById('resultBox').textContent=resume;
-
-  const btn=document.getElementById('submitBtn');
-  const originalText=btn.textContent;
-  btn.textContent='Envoi en cours...';
-  btn.disabled=true;
-
-  // Si EmailJS n'est pas configuré, on affiche juste le résumé (mode dégradé)
-  if (typeof emailjs === 'undefined' || EMAILJS_PUBLIC_KEY === 'VOTRE_PUBLIC_KEY') {
-    console.warn('EmailJS non configuré — affichage du résumé uniquement.');
-    document.getElementById('resultHeader').textContent = '✓ Résumé généré';
-    document.getElementById('resultMsg').textContent = 'EmailJS n\'est pas encore configuré. Copiez ce résumé et envoyez-le manuellement.';
-    document.getElementById('resultWrap').classList.add('active');
-    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
-    btn.textContent=originalText;
-    btn.disabled=false;
-    return;
+  $('submitErr').hidden = true;
+  const btn = $('submitBtn'), texte = btn.textContent;
+  btn.disabled = true;
+  if (envoisEnCours) { btn.textContent = 'Les photos finissent de partir…'; await attendreEnvois(); }
+  btn.textContent = 'Envoi en cours…';
+  const resume = construireResume();
+  $('resultBox').textContent = resume;
+  const email = val('f-email');
+  try {
+    if (typeof emailjs === 'undefined') throw new Error('EmailJS non chargé');
+    if (!emailjsPret) { emailjs.init(EMAILJS_PUBLIC_KEY); emailjsPret = true; }
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email: NOVASPOT_EMAIL,
+      from_name: val('f-nom'),
+      from_email: email,
+      from_phone: val('f-tel'),
+      // « Répondre » écrit au prospect si son email est valide
+      reply_to: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email) ? email : NOVASPOT_EMAIL,
+      subject: `Nouvelle demande de site — ${val('f-nom')} (${SECTEUR})`,
+      message: resume
+    });
+    envoye = true;
+    clearTimeout(minuterie);
+    try { localStorage.removeItem(CLE_BROUILLON); } catch {}
+    afficherResultat(true);
+  } catch (err) {
+    console.error('Envoi impossible :', err);
+    afficherResultat(false);
+    btn.disabled = false;
+    btn.textContent = texte;
   }
-
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    to_email: NOVASPOT_EMAIL,
-    from_name: nom,
-    from_email: email,
-    from_phone: tel,
-    // « Répondre » écrit au prospect si son email est valide
-    reply_to: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email) ? email : NOVASPOT_EMAIL,
-    subject: `Nouvelle demande de site — ${nom}`,
-    message: resume
-  }).then(() => {
-    document.getElementById('resultHeader').textContent = '✓ Demande envoyée avec succès';
-    document.getElementById('resultMsg').textContent = 'Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 48\u00a0h pour finaliser votre site.';
-    document.getElementById('resultWrap').classList.add('active');
-    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
-    btn.textContent='✓ Demande envoyée';
-    document.querySelector('.submit-card').style.opacity='0.6';
-  }).catch((err) => {
-    console.error('Erreur EmailJS:', err);
-    alert('Une erreur est survenue lors de l\'envoi. Merci de copier le résumé et de nous l\'envoyer par email directement.');
-    document.getElementById('resultHeader').textContent = '⚠ Erreur d\'envoi — résumé disponible';
-    document.getElementById('resultMsg').textContent = 'L\'envoi automatique a échoué. Copiez ce résumé et envoyez-le manuellement à contact@novaspot.fr';
-    document.getElementById('resultWrap').classList.add('active');
-    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
-    btn.textContent=originalText;
-    btn.disabled=false;
-  });
 }
+$('submitBtn').addEventListener('click', envoyer);
 
-function copyResult(){
-  const text=document.getElementById('resultBox').textContent;
-  navigator.clipboard.writeText(text).then(()=>{
-    const btn=document.getElementById('copyBtn');
-    btn.textContent='✓ Copié !';
-    btn.classList.add('copied');
-    setTimeout(()=>{btn.textContent='📋 Copier le résumé';btn.classList.remove('copied');},2000);
-  });
-}
+$('copyBtn').addEventListener('click', () => {
+  const b = $('copyBtn'), avant = b.innerHTML, texte = $('resultBox').textContent;
+  const fait = () => { b.textContent = '✓ Copié'; b.classList.add('copied'); setTimeout(() => { b.innerHTML = avant; b.classList.remove('copied'); }, 2000); };
+  const selectionner = () => { const r = document.createRange(); r.selectNodeContents($('resultBox')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  if (navigator.clipboard) navigator.clipboard.writeText(texte).then(fait, selectionner); else selectionner();
+});
+
+restaurer();
+majAffichages();
+majProgression();
 </script>
 </body>
 </html>
