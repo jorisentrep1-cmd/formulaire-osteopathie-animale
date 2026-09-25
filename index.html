@@ -820,6 +820,8 @@ Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpo
     from_name: nom,
     from_email: email,
     from_phone: tel,
+    // « Répondre » écrit au prospect si son email est valide
+    reply_to: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email) ? email : NOVASPOT_EMAIL,
     subject: `Nouvelle demande de site — ${nom}`,
     message: resume
   }).then(() => {
