@@ -527,7 +527,7 @@ header::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;heig
   <!-- RESULT -->
   <div class="result-wrap" id="resultWrap">
     <div class="result-header" id="resultHeader">✓ Demande envoyée avec succès</div>
-    <p style="font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem" id="resultMsg">Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 24h pour finaliser votre site.</p>
+    <p style="font-size:.82rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem" id="resultMsg">Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 48&nbsp;h pour finaliser votre site.</p>
     <div class="result-box" id="resultBox"></div>
     <button class="btn-copy" id="copyBtn" onclick="copyResult()"><svg class="ic-btn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copier le résumé (sauvegarde)</button>
   </div>
@@ -826,7 +826,7 @@ Généré le ${new Date().toLocaleDateString('fr-FR')} via le formulaire NovaSpo
     message: resume
   }).then(() => {
     document.getElementById('resultHeader').textContent = '✓ Demande envoyée avec succès';
-    document.getElementById('resultMsg').textContent = 'Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 24h pour finaliser votre site.';
+    document.getElementById('resultMsg').textContent = 'Votre demande a bien été transmise à NovaSpot. Vous serez recontacté sous 48\u00a0h pour finaliser votre site.';
     document.getElementById('resultWrap').classList.add('active');
     document.getElementById('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
     btn.textContent='✓ Demande envoyée';
