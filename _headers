@@ -6,6 +6,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   X-Frame-Options: SAMEORIGIN
+  # Politique de contenu : rien ne se charge hors du site, sauf les statistiques Cloudflare
+  # et les services des formulaires (EmailJS, images imgbb). Toute ressource tierce ajoutee doit y figurer.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests; img-src 'self' data: blob: https://i.ibb.co; connect-src 'self' https://api.emailjs.com https://cloudflareinsights.com
 
 /img/*
   Cache-Control: public, max-age=31536000, immutable

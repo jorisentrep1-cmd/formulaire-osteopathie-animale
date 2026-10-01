@@ -683,8 +683,7 @@ document.querySelectorAll('.presets').forEach(boite => {
   $(id).addEventListener('input', () => majNomCouleur(id));
 });
 
-// ── Photos et logo (hébergés sur imgbb) ──
-const IMGBB_API_KEY = 'b354862c93c4379e65fe593141464061';
+// ── Photos et logo (hébergés sur imgbb, via /api/photo : la clé reste côté serveur) ──
 const images = { logo: [], photos: [] };
 let envoisEnCours = 0;
 
@@ -734,7 +733,7 @@ async function envoyerUnFichier(type, fichier) {
     if (f.size > 32 * 1024 * 1024) throw new Error('trop lourd');
     const fd = new FormData();
     fd.append('image', f, f.name || fichier.name);
-    const rep = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: 'POST', body: fd });
+    const rep = await fetch('/api/photo', { method: 'POST', body: fd });
     const data = await rep.json();
     if (!data.success) throw new Error('refusé');
     entree.url = data.data.url;
