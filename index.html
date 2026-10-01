@@ -9,11 +9,22 @@
 <title>Créer votre site — Ostéopathie animale | NovaSpot</title>
 <meta name="description" content="Tout ce qu'il me faut pour créer le site de votre entreprise : coordonnées, prestations, photos. Comptez un quart d'heure."/>
 <link rel="canonical" href="https://osteo-animal.novaspot.fr/"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<!-- EmailJS : version figée + empreinte. Pour mettre à jour, changer la version ET recalculer integrity. -->
-<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:url" content="https://osteo-animal.novaspot.fr/"/>
+<meta property="og:title" content="Créer votre site — Ostéopathie animale | NovaSpot"/>
+<meta property="og:description" content="Tout ce qu'il me faut pour créer le site de votre entreprise : coordonnées, prestations, photos. Comptez un quart d'heure."/>
+<meta property="og:image" content="https://novaspot.fr/img/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<!-- EmailJS : version figée, servie par le site (copiée depuis novaspot-vitrine/js par generer.py), avec son empreinte. -->
+<script defer src="/js/emailjs-4.4.1.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS"></script>
 <style>
+/* Police servie par le site (copiée depuis novaspot-vitrine/fonts par generer.py) : aucune requête vers Google. */
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-e2e017e1.woff2) format('woff2')}
 :root{
   --navy:#0f1f3d;--orange:#047857;--orange2:#059669;--green-dk:#34d399;
   --light:#f4f7fc;--border:#d8e2f0;--text:#1a2744;--text2:#5a6a88;--text3:#5f6e88;
@@ -199,7 +210,7 @@ details.plus .avis:last-child{padding-bottom:1rem}
   <div class="h-moi"><img src="/img/joris-arnoux.jpg" alt="" width="52" height="52"/><span><b>Joris Arnoux</b>NovaSpot · Chiens · Chats · Chevaux · NAC</span></div>
   <h1 class="h-title">Ce qu'il me faut pour faire votre site</h1>
   <p class="h-sub">Comptez un quart d'heure. Seuls les champs marqués d'une étoile (<span class="req">*</span>) sont obligatoires, le reste peut se compléter au téléphone. Si vous devez vous interrompre, vos réponses restent enregistrées sur cet appareil.</p>
-  <p class="h-tel">Une question en remplissant ? Appelez-moi au <a href="tel:+33646574982">06&nbsp;46&nbsp;57&nbsp;49&nbsp;82</a></p>
+  <p class="h-tel">Une question en remplissant ? Appelez-moi au <a href="tel:+33646574982">06&nbsp;46&nbsp;57&nbsp;49&nbsp;82</a></p>
 </header>
 
 <main class="container">
@@ -213,9 +224,9 @@ details.plus .avis:last-child{padding-bottom:1rem}
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="progress-text">
-      <span id="progressSections">Sections remplies : 0 sur 9</span>
+      <span id="progressSections">Sections remplies : 0 sur 9</span>
       <button type="button" class="progress-manque" id="progressManque">7 champs obligatoires à remplir</button>
-      <span class="progress-ok" id="progressOk" hidden>Obligatoires remplis : vous pouvez envoyer quand vous voulez</span>
+      <span class="progress-ok" id="progressOk" hidden>Obligatoires remplis : vous pouvez envoyer quand vous voulez</span>
     </div>
   </div>
 
@@ -291,14 +302,14 @@ details.plus .avis:last-child{padding-bottom:1rem}
   <section class="card" data-section aria-labelledby="t3">
     <div class="card-header">
       <div class="card-num" aria-hidden="true">3</div>
-      <div><h2 class="card-title" id="t3">Horaires</h2><p class="card-sub">Écrivez-les comme vous les diriez : « 8h – 12h, 14h – 18h », « fermé », « sur rendez-vous »</p></div>
+      <div><h2 class="card-title" id="t3">Horaires</h2><p class="card-sub">Écrivez-les comme vous les diriez : « 8 h – 12 h, 14 h – 18 h », « fermé », « sur rendez-vous »</p></div>
     </div>
-    <div class="horaire-row"><label for="h-lundi">Lundi</label><input class="fi" type="text" id="h-lundi" data-jour="Lundi" placeholder="Ex&nbsp;: 8h – 12h, 14h – 18h"/></div>
+    <div class="horaire-row"><label for="h-lundi">Lundi</label><input class="fi" type="text" id="h-lundi" data-jour="Lundi" placeholder="Ex&nbsp;: 8 h – 12 h, 14 h – 18 h"/></div>
     <div class="horaire-row"><label for="h-mardi">Mardi</label><input class="fi" type="text" id="h-mardi" data-jour="Mardi"/></div>
     <div class="horaire-row"><label for="h-mercredi">Mercredi</label><input class="fi" type="text" id="h-mercredi" data-jour="Mercredi"/></div>
     <div class="horaire-row"><label for="h-jeudi">Jeudi</label><input class="fi" type="text" id="h-jeudi" data-jour="Jeudi"/></div>
     <div class="horaire-row"><label for="h-vendredi">Vendredi</label><input class="fi" type="text" id="h-vendredi" data-jour="Vendredi"/></div>
-    <div class="horaire-row"><label for="h-samedi">Samedi</label><input class="fi" type="text" id="h-samedi" data-jour="Samedi" placeholder="Ex&nbsp;: 9h – 12h, ou fermé"/></div>
+    <div class="horaire-row"><label for="h-samedi">Samedi</label><input class="fi" type="text" id="h-samedi" data-jour="Samedi" placeholder="Ex&nbsp;: 9 h – 12 h, ou fermé"/></div>
     <div class="horaire-row"><label for="h-dimanche">Dimanche</label><input class="fi" type="text" id="h-dimanche" data-jour="Dimanche" placeholder="Ex&nbsp;: fermé"/></div>
     <button type="button" class="btn-lien" id="copierLundi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Mêmes horaires du lundi au vendredi</button>
   </section>
@@ -376,10 +387,10 @@ details.plus .avis:last-child{padding-bottom:1rem}
     <div class="fg">
       <label class="fl" for="f-google">Votre fiche Google<span class="opt">(optionnel)</span></label>
       <input class="fi" type="text" id="f-google" placeholder="Le nom exact de la fiche, ou son lien"/>
-      <p class="hint">Je m'en sers pour afficher vos avis sur le site et pour préparer le QR code qui invite vos clients à en laisser. Pas encore de fiche ? Je vous aide à la créer.</p>
+      <p class="hint">Je m'en sers pour afficher vos avis sur le site et pour préparer le QR code qui invite vos clients à en laisser. Pas encore de fiche ? Je vous aide à la créer.</p>
     </div>
     <details class="plus" id="avisAilleurs">
-      <summary>Des avis reçus ailleurs (carnet, Facebook, email) ? Recopiez-en jusqu'à trois</summary>
+      <summary>Des avis reçus ailleurs (carnet, Facebook, email) ? Recopiez-en jusqu'à trois</summary>
       <p class="hint">Uniquement de vrais avis, avec l'accord des clients concernés.</p>
       <div class="avis">
         <div class="form-row">
@@ -453,17 +464,17 @@ details.plus .avis:last-child{padding-bottom:1rem}
         <span class="upload-placeholder"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5L7 20"/></svg><span class="upload-text">Choisir le logo</span></span>
       </label>
       <div class="upload-preview-list" id="logoPreview"></div>
-      <p class="hint">Pas de logo ? Je vous en fais un simple à partir du nom de l'entreprise.</p>
+      <p class="hint">Pas de logo ? Je vous en fais un simple à partir du nom de l'entreprise.</p>
     </div>
     <div class="fg">
       <span class="fl" id="l-photos">Vos photos<span class="opt">(optionnel)</span></span>
-      <p class="conseil"><b>Les photos font la moitié du site.</b> Ce qui marche le mieux : le cabinet, vous en consultation, des animaux suivis (avec l&#x27;accord des propriétaires). Des photos prises au téléphone, en plein jour et à l'horizontale, suffisent largement. Pas de photos trouvées sur Internet : elles appartiennent à quelqu'un d'autre.</p>
+      <p class="conseil"><b>Les photos font la moitié du site.</b> Ce qui marche le mieux : le cabinet, vous en consultation, des animaux suivis (avec l&#x27;accord des propriétaires). Des photos prises au téléphone, en plein jour et à l'horizontale, suffisent largement. Pas de photos trouvées sur Internet : elles appartiennent à quelqu'un d'autre.</p>
       <label class="upload-zone" data-type="photos">
         <input type="file" id="photosInput" class="vh" accept="image/*" multiple aria-labelledby="l-photos"/>
         <span class="upload-placeholder"><svg class="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.4"/></svg><span class="upload-text">Choisir des photos</span></span>
       </label>
       <div class="upload-preview-list" id="photosPreview"></div>
-      <p class="hint">Vous pouvez en choisir plusieurs d'un coup. Elles sont allégées avant l'envoi : inutile de les retoucher.</p>
+      <p class="hint">Vous pouvez en choisir plusieurs d'un coup. Elles sont allégées avant l'envoi : inutile de les retoucher.</p>
     </div>
   </section>
 
@@ -486,10 +497,10 @@ details.plus .avis:last-child{padding-bottom:1rem}
     <div class="fg">
       <label class="fl" for="f-subdomain">Adresse souhaitée pour le site<span class="opt">(optionnel)</span></label>
       <div class="suffixe"><input class="fi" type="text" id="f-subdomain" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="lea-martin-osteo"/><span>.novaspot.fr</span></div>
-      <p class="hint">Avec Pro ou Premium, vous pouvez avoir votre propre nom, par exemple lea-martin-osteo.fr : vous l'achetez à votre nom (environ 10 à 15&nbsp;€ par an) et je le configure gratuitement.</p>
+      <p class="hint">Avec Pro ou Premium, vous pouvez avoir votre propre nom, par exemple lea-martin-osteo.fr : vous l'achetez à votre nom (environ 10 à 15&nbsp;€ par an) et je le configure gratuitement.</p>
     </div>
     <div class="fg">
-      <label class="fl" for="f-domaine-existant">Vous avez déjà un nom de domaine ?<span class="opt">(optionnel)</span></label>
+      <label class="fl" for="f-domaine-existant">Vous avez déjà un nom de domaine ?<span class="opt">(optionnel)</span></label>
       <input class="fi" type="text" id="f-domaine-existant" autocapitalize="none" spellcheck="false" placeholder="Ex&nbsp;: lea-martin-osteo.fr, laissez vide sinon"/>
     </div>
   </section>
@@ -498,7 +509,7 @@ details.plus .avis:last-child{padding-bottom:1rem}
   <section class="card" data-section aria-labelledby="t9">
     <div class="card-header">
       <div class="card-num" aria-hidden="true">9</div>
-      <div><h2 class="card-title" id="t9">Pour finir</h2><p class="card-sub">Rien d'obligatoire ici : ce qui manque, on le voit au téléphone</p></div>
+      <div><h2 class="card-title" id="t9">Pour finir</h2><p class="card-sub">Rien d'obligatoire ici : ce qui manque, on le voit au téléphone</p></div>
     </div>
     <div class="form-row">
       <div class="fg">
@@ -534,20 +545,20 @@ details.plus .avis:last-child{padding-bottom:1rem}
       </div>
     </div>
     <div class="fg">
-      <label class="fl" for="f-libre">Autre chose à me dire ?</label>
+      <label class="fl" for="f-libre">Autre chose à me dire ?</label>
       <textarea class="ft" id="f-libre" placeholder="Des envies, des choses à éviter, un site que vous aimez bien…"></textarea>
     </div>
   </section>
 
   <!-- ENVOI -->
   <div class="submit-card">
-    <h2 class="submit-title">Prêt à envoyer ?</h2>
+    <h2 class="submit-title">Prêt à envoyer ?</h2>
     <p class="submit-sub">Je lis votre demande et je vous rappelle sous 48&nbsp;h pour caler les derniers détails. Votre site est en ligne 48&nbsp;h après réception du dossier complet.</p>
     <p class="submit-err" id="submitErr" role="alert" hidden></p>
     <input type="text" id="f-hp" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
     <button type="button" class="btn-submit" id="submitBtn">Envoyer ma demande</button>
     <p class="submit-rgpd">
-      Vos réponses servent uniquement à faire votre site et à vous recontacter. Elles ne sont ni vendues ni cédées, et vous pouvez demander leur suppression à tout moment : voir la <a href="https://novaspot.fr/confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
+      Vos réponses servent uniquement à faire votre site et à vous recontacter. Elles ne sont ni vendues ni cédées, et vous pouvez demander leur suppression à tout moment : voir la <a href="https://novaspot.fr/confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.
       Si vous me transmettez des avis de vos clients, assurez-vous d'avoir leur accord pour les publier.
     </p>
   </div>
@@ -584,7 +595,7 @@ function erreurChamp(id) {
   const v = val(id);
   if (!v) return 'Obligatoire';
   if (id === 'f-email' && !/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v)) return 'Adresse email incomplète';
-  if (id === 'f-tel' && v.replace(/\D/g, '').length < 10) return 'Numéro incomplet : il faut 10 chiffres';
+  if (id === 'f-tel' && v.replace(/\D/g, '').length < 10) return 'Numéro incomplet : il faut 10 chiffres';
   if (id === 'f-cp' && !/^\d{5}$/.test(v.replace(/\s/g, ''))) return 'Le code postal a 5 chiffres';
   return '';
 }
@@ -622,7 +633,7 @@ function majProgression() {
   let n = 0;
   cartes.forEach(c => { const r = sectionRemplie(c); c.classList.toggle('rempli', r); if (r) n++; });
   $('progressFill').style.width = Math.round(n / cartes.length * 100) + '%';
-  $('progressSections').textContent = `Sections remplies : ${n} sur ${cartes.length}`;
+  $('progressSections').textContent = `Sections remplies : ${n} sur ${cartes.length}`;
   const manquants = OBLIGATOIRES.filter(id => !val(id));
   $('progressManque').hidden = !manquants.length;
   $('progressOk').hidden = !!manquants.length;
@@ -788,7 +799,7 @@ function restaurer() {
   $('brouillon').hidden = false;
 }
 $('brouillonEffacer').addEventListener('click', () => {
-  if (!confirm('Effacer toutes vos réponses et recommencer ?')) return;
+  if (!confirm('Effacer toutes vos réponses et recommencer ?')) return;
   envoye = true;
   try { localStorage.removeItem(CLE_BROUILLON); } catch {}
   location.reload();
@@ -912,7 +923,7 @@ async function envoyer() {
     try { localStorage.removeItem(CLE_BROUILLON); } catch {}
     afficherResultat(true);
   } catch (err) {
-    console.error('Envoi impossible :', err);
+    console.error('Envoi impossible :', err);
     afficherResultat(false);
     btn.disabled = false;
     btn.textContent = texte;
