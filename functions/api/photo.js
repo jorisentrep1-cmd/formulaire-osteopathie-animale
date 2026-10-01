@@ -27,8 +27,15 @@ export async function onRequestPost({ request, env }) {
   const envoi = new FormData();
   envoi.append('image', fichier, fichier.name || 'photo.jpg');
   const reponse = await fetch(`https://api.imgbb.com/1/upload?key=${encodeURIComponent(env.IMGBB_KEY)}`, { method: 'POST', body: envoi });
-  const resultat = await reponse.json().catch(() => null);
-  if (!resultat || !resultat.success) return json({ success: false, erreur: 'imgbb' }, 502);
+  const brut = await reponse.text();
+  let resultat = null;
+  try { resultat = JSON.parse(brut); } catch {}
+  if (!resultat || !resultat.success) {
+    // 424 et pas 502 : Cloudflare remplace les 502 par sa propre page et masque la cause.
+    const detail = (resultat && resultat.error && resultat.error.message) || brut.replace(/\s+/g, ' ').slice(0, 160);
+    console.error('imgbb', reponse.status, detail);
+    return json({ success: false, erreur: 'imgbb', statut: reponse.status, detail }, 424);
+  }
   return json({ success: true, data: { url: resultat.data.url } });
 }
 
